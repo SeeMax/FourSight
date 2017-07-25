@@ -1,0 +1,183 @@
+@import "colors";
+
+.testimonial-carousel {
+
+	.content {
+
+	}
+
+	.carosuel-frame {
+		position: relative;
+		width:100%;
+		max-width:940px;
+		height:auto;			
+	}
+}
+	
+		
+.testimonial-container {
+	width:100%;
+	box-shadow: 0px 12px 43px -7px rgba(0,0,0,0.5);
+	background-color:$darkGray;
+}
+
+.single-testimonial {
+	width:100%;
+	height:auto;
+	min-height:260px;
+	background:$darkGray;
+	color:white;
+}
+
+.single-testimonial-content {
+	display: flex;
+	align-items:stretch;
+	flex-wrap:wrap;
+	width:100%;
+	height:auto;
+}
+
+.testimonial-image {
+	width:27%;
+	height:auto;
+
+	img {
+		width:100%;
+		height:auto;
+		display: block;
+	}
+}
+
+.testimonial-content {
+	display: flex;
+	flex-wrap:wrap;
+	align-content:center;
+	justify-content:center;
+	width:73%;
+	height:auto;
+}
+
+.testimonial-quote {
+	font-size: 24px;
+	line-height: 1.1;
+	font-style:italic;
+	margin-bottom:25px;
+	width:75%;
+	height:auto;
+}
+
+.testimonial-credentials {
+	font-weight:800;
+}
+
+.testimonial-title {
+
+}
+
+.testimonial-company {
+
+}
+
+.testimonial-dots {
+	position: absolute;
+	width:100%;
+	bottom:50px;
+
+	.slick-dots {
+		position: relative;
+		bottom:0;
+		display: block;
+    width: 73%;
+    margin-right: 0;
+    margin-left: auto;
+
+		li {
+			height:12px;
+			width:12px;
+			border:2px solid white;
+			border-radius:50%;
+			transition:background .3s;
+
+			button {
+				display: none;
+			}
+		}
+
+		.slick-active {
+			background:white;
+		}
+	}
+}
+
+// 1024px And Below
+@media screen and (max-width: 1024px){
+
+	.testimonial-image {
+		width:35%;
+	}
+
+	.testimonial-content {
+		width:65%;
+	}
+
+	.testimonial-dots {
+		position: absolute;
+		width:100%;
+		bottom:50px;
+
+		.slick-dots {
+			position: relative;
+			bottom:-10px;
+			display: block;
+	    width: 65%;
+	    margin-right: 0
+   	}
+  }
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+	.single-testimonial-content {
+		display: flex;
+		align-items:stretch;
+		flex-wrap:wrap;
+		width:100%;
+		height:auto;
+		padding-bottom:62px;
+	}
+
+
+	.testimonial-container {
+		
+	}
+
+	.testimonial-image {
+		width:100%;
+		height:auto;
+		margin-bottom:40px;
+
+		img {
+		
+		}
+	}
+
+	.testimonial-quote {
+		font-size:20px;
+		line-height: 1.2;
+	}
+
+	.testimonial-content {
+		width:100%;
+	}
+
+	.testimonial-dots {
+		background:$darkGray;
+		width:100%;
+
+		.slick-dots {
+	    width: 100%;
+		}
+	}
+}

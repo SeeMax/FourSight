@@ -1,0 +1,295 @@
+@import "colors";
+
+.pricing-page {
+	background: white;
+
+	.content {
+
+	}
+
+	.hero-section {
+		height:590px;
+		background: linear-gradient(to bottom, rgba(0,83,216,1) 0%,rgba(0,134,216,1) 100%);	
+		color:white;
+
+		.content {
+			align-items:center;
+		}
+
+		h1 {
+			opacity:0;
+		}
+	}
+}
+
+.pricing-tiles-section {
+	background: none;
+	width:100%;
+
+	.content {
+		margin-top:-150px;
+		padding-top:0;	
+		padding-bottom:100px;
+		overflow: hidden;
+	}
+}
+
+.single-pricing-tile {
+	width:300px;
+	border-radius:10px;
+	box-shadow: 0px 12px 43px -7px rgba(0,0,0,0.5);
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	padding:30px 60px 45px 60px;
+	margin:0px 6px 0px 6px;
+	background: white;
+	opacity:0;
+
+	.school-type {
+		font:800 24px/1 "sofia-pro",sans-serif;
+		color:$blue;
+		margin-bottom:12px;
+	}
+
+	.price {
+		position: relative;
+		font:800 120px/1 'Roboto', sans-serif;
+		
+		.sup {
+			position: absolute;
+			top:10px;
+			left:-20px;
+			font-size:40px;
+		}
+	}
+
+	.per-player {
+		line-height:1.1;
+	}
+
+	.add-charge {
+		margin-top:25px;
+		font-weight:800;
+		font-style:italic;
+		font-size:18px;
+		line-height: 1.3;
+	}
+
+	.button {
+		padding-left:40px;
+		padding-right:40px;
+		font-size:16px;
+		margin-top:32px;
+	}
+}
+
+.whats-included-section {
+
+	.content {
+		padding-top:0;
+		padding-bottom:0;
+		overflow: hidden;
+	}
+
+	h2 {
+		opacity:0;
+	}
+}
+
+.whats-included-tile {
+	width:50%;
+	height:auto;
+	display: flex;
+	flex-wrap:wrap;
+	align-content:center;
+	justify-content:flex-end;
+	text-align: left;
+	margin-top:80px;
+
+	&:nth-child(3) {
+		align-content:flex-start;
+		padding-left:50px;
+	}
+
+	img {
+		max-width:415px;
+		height: 100%;
+    width: 100%;
+	}
+
+	.whats-included-item {
+		width:100%;
+		margin-top:15px;
+		transform:translateX(100px);
+		opacity:0;
+
+		i {
+			color:$blue;
+			margin-right:5px;
+		}
+	}
+
+	.whats-included-foot {
+		i {
+			opacity:0;
+			font-size:16px;
+		}	
+
+		font-size:12px;
+		font-style:italic;
+		margin-top:25px;
+	}
+}
+
+
+.pricing-news-section {
+
+	.featured-story {
+		position: relative;
+		width:48%;
+		margin:0 1% 25px 1%;
+		height:345px;
+		overflow: hidden;
+		transition:all .4s ease-in-out;
+		box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.5);
+		background: no-repeat center center;
+    background-size: cover;
+
+		&:hover {
+			box-shadow: 0px 12px 43px -7px rgba(0,0,0,0.5);
+			transform:translateY(-1px)
+		}
+
+		a {
+			display: block;
+			width:100%;
+			height:100%;
+			position: absolute;
+			top:0;
+			left:0;
+			z-index:4;
+			opacity:0;
+		}
+
+		img {
+			height:auto;
+			width:100%;
+			min-height: 100%;
+		}
+
+		.featured-story-content {
+			position: absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			padding:80px 95px;
+			display: flex;
+			flex-wrap:wrap;
+			align-content:center;
+			justify-content:center;
+
+			h2, p {
+				color: white;
+				width:100%;
+			}
+
+		}
+		
+		.featured-story-gradient {
+			position: absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			opacity:.65;
+			background: rgba(0, 0, 0, .25);
+		}
+	}
+}
+// 1024px And Below
+@media screen and (max-width: 1024px){
+	.pricing-news-section {
+
+		.featured-story {
+
+			.featured-story-content {
+				padding:80px 40px;
+			}
+		}
+	}
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+	.pricing-page {
+
+		.content {
+
+		}
+
+		.hero-section {
+			height:auto;
+
+			
+
+			h1 {
+				font-size:50px;
+			}
+		}
+
+		.pricing-tiles-section {
+
+			.content {
+				margin-top:0;
+				padding-top:40px;
+			}
+
+			.single-pricing-tile {
+				margin-top:40px;
+				padding:30px 30px 45px 30px;
+			}
+		}
+
+		.whats-included-section {
+
+			.content {
+
+			}
+
+			.whats-included-tile {
+				width:100%;
+				margin-top:40px;
+				text-align:center;
+				justify-content:center;
+
+				&:nth-child(3) {
+					padding-left:0;
+					text-align:center;
+				}
+
+				.whats-included-foot {
+
+					i {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.pricing-news-section {
+
+			.featured-story {
+				width:100%;
+
+				.featured-story-content {
+					padding:20px;
+				}
+			}
+		}
+	}
+}

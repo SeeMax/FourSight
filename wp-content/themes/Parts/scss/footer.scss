@@ -1,0 +1,212 @@
+@import "colors";
+
+.footer {
+	position: relative;
+	background-color: $darkGray;
+	color:$midGray;
+	font-size: 14px;
+
+	.content {
+		padding-top:80px;
+		padding-bottom:70px;
+		text-align: left;
+	}
+
+	a {
+		color:$midGray;
+		transition: all .3s ease-in-out;
+
+		&:hover {
+			color:white;
+		}
+	}
+	
+
+	h2 {
+		color:white;
+		width:auto;
+		margin:20px 30px 20px 0; 
+	}
+
+	.button {
+		margin:0px 0px 0px 0; 	
+		color:white;
+
+		&:hover {
+			color:$blue;
+		}
+
+		a {
+			color:white;
+
+			&:hover {
+				color:$blue;
+			}
+		}
+	}
+
+	.footer-hero {
+		display: flex;
+		flex-wrap:wrap;
+		align-items:center;
+		justify-content:center;
+		padding-bottom: 80px; 
+	}
+
+	.footer-links {
+		width:100%;
+		display: flex;
+		flex-wrap:wrap;
+		align-items:flex-end;
+		margin-left:25px;
+
+		div {
+			flex-grow:1;
+		}
+
+		i {
+			margin:0 7px;
+			font-size:20px;
+		}
+
+		.footer-logo {
+			flex-grow:2;
+
+			img {
+				max-width:140px;
+			}
+		}
+	}
+}
+
+// 1024px And Below
+@media screen and (max-width: 1023px){
+
+	.footer {
+		
+		.content {
+
+		}
+		
+
+		h2 {
+			margin:20px 0px;
+			width:100%;
+		}
+
+		.button {
+			margin:0px 0px 0px 0; 	
+			color:white;
+
+			&:hover {
+				color:$blue;
+			}
+
+			a {
+				color:white;
+
+				&:hover {
+					color:$blue;
+				}
+			}
+		}
+
+		.footer-hero {
+			padding-bottom: 100px; 
+		}
+
+		.footer-links {	
+			align-items:flex-start;
+			margin-left:0px;	
+
+			.social-icons	{
+				width:100%;
+				margin-top:30px;
+				text-align:center;
+			}
+
+			div {
+				flex-grow:1;
+				margin-bottom:20px;
+			}
+
+			i {
+				margin:0 10px;
+				font-size:30px;
+			}
+		}
+	}
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+	.footer {
+		
+		.content {
+			padding-top:40px;
+			padding-bottom:20px;
+			text-align: left;
+		}
+
+		.copyright {
+			order: 10;
+		}
+		
+
+		h2 {
+			margin:20px 0px 40px 0;
+			width:100%;
+		}
+
+		.button {
+			margin:0px 0px 0px 0; 	
+			color:white;
+
+			&:hover {
+				color:$blue;
+			}
+
+			a {
+				color:white;
+
+				&:hover {
+					color:$blue;
+				}
+			}
+		}
+
+		.footer-hero {
+			padding-bottom: 100px; 
+		}
+
+		.footer-links {
+			flex-direction:column;
+			align-items:flex-start;			
+
+			div {
+				width:100%;
+				flex-grow:1;
+				margin-bottom:20px;
+				text-align: center;
+			}
+
+			i {
+				margin:0 10px;
+				font-size:30px;
+			}
+
+			.social-icons	{
+				width:100%;
+				margin-top:20px;	
+			}
+
+		}
+
+	}
+}
+
+
+
+

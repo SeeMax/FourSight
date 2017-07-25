@@ -1,0 +1,183 @@
+@import "colors";
+
+.menu-toggle {
+	position: fixed;
+	top:40px;
+	right:50px;
+	z-index:100;
+	display: flex;
+	flex-wrap:wrap;
+	align-items:center;
+	justify-content:center;
+	width:60px;
+	height:60px;
+	padding:20px 16px;
+	border-radius:50%;
+	background-color: black;
+	cursor:pointer;
+
+	span {
+		display: block;
+		height:2px;
+		width:100%;
+		background-color: white;
+	}
+}
+
+header {
+	position: fixed;
+	top:0;
+	right:-100%;
+	width:auto;
+	height:100vh;
+	background:$darkGray;
+	z-index:99;
+
+	.content {
+		flex-direction:column;
+		justify-content:space-between;
+		padding:140px 115px 110px 115px;
+		height:100%;
+	}
+
+	.main-nav {
+		// width:100%;
+	}
+
+	li {
+		margin-bottom:15px;
+		text-align: right;
+		opacity:0;
+		transform:translateX(100px);
+		font:800 40px/1.2 "sofia-pro",sans-serif;
+
+		a {
+			
+		}
+	}
+
+	.header-info {
+		align-self:flex-end;
+		font-size:14px;
+		color:$midGray;
+		text-align:right;
+		// width:100%;
+		
+		div {
+			opacity:0;
+			transform:translateY(20px);
+		}
+
+		.header-email {
+			margin-top:14px;
+		}
+
+		a {
+			color:$midGray;
+			transition:color .3s ease-in-out;
+
+			&:hover {
+				color: white;
+			}
+		}
+	}
+}
+
+.header-background {
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100vh;
+	opacity:0;
+	background-color: $blue;
+	pointer-events:none;
+	cursor:default;
+	z-index:-1;
+}
+
+// 1024px And Below
+@media screen and (max-width: 1024px){
+
+
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+	.menu-toggle {
+		top:10px;
+		right:10px;
+		width:45px;
+		height:45px;
+		padding:15px 12px;
+
+		span {
+			display: block;
+			height:2px;
+			width:100%;
+			background-color: white;
+		}
+	}
+
+	header {
+		position: fixed;
+		top:0;
+		left:100%;
+		width:100%;
+		height:100%;
+		display: flex;
+		align-items:center;
+		justify-content:center;
+		
+
+		.content {
+			flex-direction:column;
+			justify-content:space-between;
+			padding:0;
+			width:70%;
+			height:70%;
+		}
+
+		.main-nav {
+			width:100%;
+		}
+
+		li {
+			margin-bottom:15px;
+			text-align: right;
+			opacity:0;
+			transform:translateX(100px);
+			font:800 30px/1.2 "sofia-pro",sans-serif;
+		}
+
+		.header-info {
+			align-self:flex-end;
+			font-size:14px;
+			color:$midGray;
+			text-align:right;
+			// width:100%;
+			
+			div {
+				opacity:0;
+				transform:translateY(20px);
+			}
+
+			.header-email {
+				margin-top:14px;
+			}
+
+			a {
+				color:$midGray;
+				transition:color .3s ease-in-out;
+
+				&:hover {
+					color: white;
+				}
+			}
+		}
+	}
+
+} //End 767px
+
