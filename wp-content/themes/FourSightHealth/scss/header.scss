@@ -1,0 +1,40 @@
+.header {
+
+	.content {
+		justify-content: space-between;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.logo {
+		width:25%;
+		min-width: 275px;
+
+		img {
+			width:100%;
+			height:auto;
+		}
+	}
+
+	nav {
+		width:60%;
+		text-align: right;
+		display: flex;
+		align-items: center;
+	
+		ul {
+			width:100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		li {
+			display: inline-block;
+		}
+
+		a {
+			text-transform: uppercase;
+	  	color:black;
+	  }
+	}
+}

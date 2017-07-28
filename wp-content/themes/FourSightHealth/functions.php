@@ -63,7 +63,7 @@ if (function_exists('add_theme_support'))
 \*------------------------------------*/
 
 // HTML5 Blank navigation
-function html5blank_nav()
+function main_theme_nav()
 {
 	wp_nav_menu(
 	array(
@@ -87,43 +87,85 @@ function html5blank_nav()
 	);
 }
 
-// Load HTML5 Blank scripts (header.php)
-function html5blank_header_scripts()
+// Load Scripts (header.php)
+function theme_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
     	wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
         wp_enqueue_script('conditionizr'); // Enqueue it!
 
-        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
+        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1', true); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('html5blankscripts'); // Enqueue it!
+        wp_register_script('slickslider', get_template_directory_uri() . '/js/lib/slick.js', array('jquery'), '1.6.0', true); // slickslider
+        wp_enqueue_script('slickslider'); // Enqueue it!
+
+        wp_register_script('tweenmax', get_template_directory_uri() . '/js/lib/TweenMax.min.js', array(), '1.19.1', true); // tweenmax
+        wp_enqueue_script('tweenmax'); // Enqueue it!
+
+        wp_register_script('timelinemax', get_template_directory_uri() . '/js/lib/TimelineMax.min.js', array(), '1.18.6', true); // timelinemax
+        wp_enqueue_script('timelinemax'); // Enqueue it!
+
+        wp_register_script('DrawSVGPlugin', get_template_directory_uri() . '/js/lib/DrawSVGPlugin.min.js', array(), '0.1.3', true); // DrawSVGPlugin
+        wp_enqueue_script('DrawSVGPlugin'); // Enqueue it!
+
+        wp_register_script('ScrollMagic', get_template_directory_uri() . '/js/lib/ScrollMagic.min.js', array(), '1.8.1', true); // ScrollMagic
+        wp_enqueue_script('ScrollMagic'); // Enqueue it!
+
+        wp_register_script('ScrollMagicGSAP', get_template_directory_uri() . '/js/lib/animation.gsap.min.js', array(), '1.8.1', true); // ScrollMagic
+        wp_enqueue_script('ScrollMagicGSAP'); // Enqueue it!
+
+        wp_register_script('ScrollToPlugin', get_template_directory_uri() . '/js/lib/ScrollToPlugin.min.js', array(), '1.8.1', true); // ScrollToPlugin
+        wp_enqueue_script('ScrollToPlugin'); // Enqueue it!
+
+        wp_register_script('imagesLoaded', get_template_directory_uri() . '/js/lib/imagesLoaded.js', array(), '4.1.1', true); // imagesLoaded
+        wp_enqueue_script('imagesLoaded'); // Enqueue it!
+
+        wp_register_script('attrGSAP', get_template_directory_uri() . '/js/lib/AttrPlugin.min.js', array(), '0.6.0', true); // attrGSAP
+        wp_enqueue_script('attrGSAP'); // Enqueue it!
+
+        wp_register_script('parallax', get_template_directory_uri() . '/js/lib/parallax.min.js', array('jquery'), '1.4.2', true); // parallax
+        wp_enqueue_script('parallax'); // Enqueue it!
+
+        wp_register_script('theme-script', get_template_directory_uri() . '/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_enqueue_script('theme-script'); // Enqueue it!
     }
 }
 
-// Load HTML5 Blank conditional scripts
-function html5blank_conditional_scripts()
-{
-    if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('scriptname'); // Enqueue it!
-    }
-}
+// Load conditional scripts
+// function template_conditional_scripts()
+// {
+//     if (is_page('pagenamehere')) {
+//         wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
+//         wp_enqueue_script('scriptname'); // Enqueue it!
+//     }
+// }
 
-// Load HTML5 Blank styles
-function html5blank_styles()
+// Load Styles
+function theme_styles()
 {
-    wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
+    wp_register_style('normalize', get_template_directory_uri() . '/css/normalize.min.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('html5blank'); // Enqueue it!
+    // FONTS CSS
+    wp_register_style('theme_fonts', get_template_directory_uri() . '/fonts/fonts.css', array(), '1.0', 'all');
+    wp_enqueue_style('theme_fonts'); // Enqueue it!
+
+    // SLICK SLIDER CSS-1
+    wp_register_style('SlickSlider', get_template_directory_uri() . '/css/slick.css', array(), '1.0', 'all');
+    wp_enqueue_style('SlickSlider'); // Enqueue it!
+
+    // SLICK SLIDER CSS-2
+    wp_register_style('SlickTheme', get_template_directory_uri() . '/css/slick-theme.css', array(), '1.0', 'all');
+    wp_enqueue_style('SlickTheme'); // Enqueue it!
+
+    wp_register_style('theme_css', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+    wp_enqueue_style('theme_css'); // Enqueue it!
 }
 
 // Register HTML5 Blank Navigation
-function register_html5_menu()
+function register_theme_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
@@ -340,12 +382,15 @@ function html5blankcomments($comment, $args, $depth)
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
+add_action('init', 'theme_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
-add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
-add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+add_action('wp_enqueue_scripts', 'theme_styles'); // Add Theme Stylesheet
+add_action('init', 'register_theme_menu'); // Add HTML5 Blank Menu
+add_action('init', 'create_post_type_testiominial');
+add_action('init', 'create_post_type_bio');
+add_action('init', 'create_post_type_article');
+add_action('init', 'create_post_type_podcast');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -395,42 +440,81 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 	Custom Post Types
 \*------------------------------------*/
 
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
+function create_post_type_testiominial()
 {
-    register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'html5-blank');
-    register_post_type('html5-blank', // Register Custom Post Type
+  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'theme_template');
+    register_post_type( 'testimonial',
         array(
-        'labels' => array(
-            'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
-            'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
-            'add_new' => __('Add New', 'html5blank'),
-            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
-            'edit' => __('Edit', 'html5blank'),
-            'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
-            'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
-            'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
-            'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
-            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
-        ),
+            'labels' => array(
+                'name' => ('Testimonials'),
+                'singular_name' => ('Testimonial')
+            ),
         'public' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
         'has_archive' => true,
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
-    ));
+        'rewrite' => array('slug' => 'testimonial'),
+        'supports' => array('title','editor'),
+        'menu_icon'   => 'dashicons-media-text'
+        )
+    );
+}
+
+function create_post_type_bio()
+{
+  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'theme_template');
+    register_post_type( 'bio',
+        array(
+            'labels' => array(
+                'name' => ('Bios'),
+                'singular_name' => ('Bio')
+            ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'Bio'),
+        'supports' => array('title','editor'),
+        'menu_icon'   => 'dashicons-universal-access-alt'
+        )
+    );
+}
+
+
+function create_post_type_article()
+{
+  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'theme_template');
+    register_post_type( 'article',
+        array(
+            'labels' => array(
+                'name' => ('Articles'),
+                'singular_name' => ('Article')
+            ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'Article'),
+        'supports' => array('title','editor'),
+        'menu_icon'   => 'dashicons-media-default'
+        )
+    );
+}
+
+function create_post_type_podcast()
+{
+  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'theme_template');
+    register_post_type( 'podcast',
+        array(
+            'labels' => array(
+                'name' => ('Podcasts'),
+                'singular_name' => ('Podcast')
+            ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'Podcast'),
+        'supports' => array('title','editor'),
+        'menu_icon'   => 'dashicons-controls-volumeon'
+        )
+    );
 }
 
 /*------------------------------------*\

@@ -1,0 +1,337 @@
+@import "colors";
+
+.home-page {
+		
+
+	.video-section {
+
+		.content {
+			position: absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:auto;
+			min-height: 300px;
+		}
+		
+		.video-frame {
+			width:100%;
+			margin:0 auto;
+			z-index:1 !important;
+			position: relative;
+			height:0;
+			padding-top:50.5%;
+		}
+
+		
+		iframe {
+			display:table  !important;
+			position:absolute;
+			top:0; 
+			left:0;
+			width:100%;
+			height:100%;
+			z-index:2 !important;
+		}
+	}
+
+	.mission-section {
+
+		.content {
+			padding-bottom: 50px;
+		}
+
+	}
+
+	.mission-icons {
+		width:100%;
+		height:auto;
+		display: flex;
+		flex-wrap:wrap;
+		margin-top:70px;
+		justify-content: space-around;
+		align-items: center;
+		
+		.single-icon {
+			width:25%;
+			height:auto;
+
+			svg {
+				margin:0 auto;
+				width:80%;
+				height:100%;
+				min-height: 200px;
+			}
+		}
+	}
+
+	.versus-top {
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:95px;
+		display:flex;
+
+			svg {
+				width:100%;
+				height:100%;
+			}
+
+			.section-topper-polygon {
+				fill:white;
+			}
+		}
+
+
+
+	.versus-section {
+		background: no-repeat center center;
+    background-size: cover;
+		background-image: url('./img/backgrounds/Stocksy_comp_825843_gray.jpg');
+		padding-bottom:250px;
+		padding-top: 75px;
+
+		.content {
+			overflow: visible;
+		}
+
+		h2 {
+			color:$green;
+		}
+
+		p {
+			color:white;
+		}
+	}
+
+	.book-image {
+		position: relative;
+		z-index: 99;
+		margin:-360px auto 0 auto;
+		width:100%;
+		text-align: center;
+
+		img {
+			margin:0 auto;
+			width:auto;
+			height:auto;
+		}
+	}
+
+	.blog-section {
+
+		.button {
+			color:$teal;
+		}
+	}
+
+	.blog-grid {
+		margin-top:60px;
+		display: flex;
+		flex-wrap:wrap;
+		width:100%;
+		align-content: center;
+		justify-content: space-between;
+	}
+
+	.single-blog-preview {
+		width:32%;
+		height:auto;
+		border:1px solid #E6E7E8;
+	}
+
+	.news-section {
+
+		.content {
+			flex-direction:column;
+		}
+
+		h2 {
+			width:40%;
+			margin:0 auto;
+		}
+
+		.news-row {
+			margin-top:70px;
+			display:flex;
+			flex-wrap:wrap;
+			justify-content:space-between;
+			height: auto;
+			width: 100%;
+		}
+
+		.news-tile {
+			position: relative;
+			width:32%;
+			height:100%;
+			box-shadow: 0px 12px 43px -7px rgba(0,0,0,0.5);
+			transition:all .3s ease-out;
+
+			img {
+				position: relative;
+				width:100%;
+				height:auto;
+			}
+
+			h3 {
+				color:white;
+			}
+
+			.news-tile-gradient {
+				position: absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+				opacity:.65;
+				background: linear-gradient(to bottom, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 45%,rgba(0,0,0,1) 100%);
+			}
+
+			.news-tile-content {
+				position: absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+				display:flex;
+				align-items:flex-end;
+				justify-content:center;
+				padding:0 10% 12% 10%;
+				transition:all .3s ease-out;
+			}
+
+			a {
+				display: block;
+				position: absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+			}
+
+			h3 {
+				text-align: left;
+			}
+
+			&:hover {
+				transform: translateY(-3px) scale(1.015);
+				box-shadow: 0px 10px 63px 0px rgba(0,0,0,0.5);
+
+				.news-tile-content {
+					padding-bottom: 18%;
+				}
+			}
+		}
+	}
+}
+
+
+// 1024px And Below
+@media screen and (max-width: 1024px){
+
+	.home-page {
+
+		p {
+			width:90%;
+		}
+
+		.hero-section {
+
+			.print-background {
+				position: absolute;
+		    top: -25%;
+		    left: -25%;
+		    width: 150%;
+    		height: 150%;
+    	}
+
+    	.hero-helmet {
+    		height:65vh;
+    	}
+    }
+
+    .news-section {
+
+			h2 {
+				width:90%;
+			}
+		}
+  }
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+	.home-page {
+
+		p {
+			width:100%;
+		}
+
+		.hero-section {
+
+			.print-background {
+				position: absolute;
+		    top: -25%;
+		    left: -25%;
+		    width: 150%;
+    		height: 150%;
+    	}
+
+			.hero-headline {
+				max-width:100%;
+				padding:0 25px;
+			}
+
+			.hero-helmet {
+				height:auto;
+
+				img {
+					height: 100%;
+    			width: 100%;
+    			max-height: none;
+    			padding: 0 25px;
+    			
+				}
+			}
+
+			.apple-app {
+				bottom: 20px;
+    		right: 20px;
+			}
+
+			.button-frame {
+    		top: 74.5vh;
+    	}
+		}
+
+		.intro-section {
+
+			.video-frame {
+				width:100%;
+			}
+
+			.play-video {
+				
+				svg {
+					height:50%;
+				}
+
+			}
+		}
+
+		.news-section {
+
+			h2 {
+				width:100%;
+			}
+
+			.news-tile {
+				width:100%;
+				margin-bottom:30px;
+			}
+		}
+	}
+} //End 767px

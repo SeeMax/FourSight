@@ -6,7 +6,7 @@ var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('browserSync', function() {
   browserSync.init({
-    proxy: "localhost:8888/4sight"
+    proxy: "localhost:8888/FourSight"
   })
 })
 
