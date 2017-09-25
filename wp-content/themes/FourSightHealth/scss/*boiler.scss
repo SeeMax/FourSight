@@ -52,7 +52,7 @@ a:hover,
 a:active {
 	outline:0;
 }
-input:focus {
+input:focus, textarea:focus {
 	outline:0;
 	border:1px solid #04A4CC;
 }

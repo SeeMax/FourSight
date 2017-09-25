@@ -1,10 +1,25 @@
-// //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
-// (function ($, root, undefined) {
+//USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
+(function ($, root, undefined) {
 	
-// 	$(function () {
+	$(function () {
 
-// 		// YOUR CODE HERE
+		TweenLite.defaultEase = Linear.easeNone;
 
-// 	});
 
-// })(jQuery, this);
+			//show the square only once js has run
+			//visibility set to hidden in css panel
+			TweenLite.set(".square", {visibility:"visible"});
+
+
+
+			var tl = new TimelineLite();
+			tl.fromTo(".l1", 1, {height:0}, {height:200})
+			.fromTo(".l2", 4, {width:0, backgroundColor:"red"}, {width:200, backgroundColor:"blue"})
+			  .fromTo(".l3", 1, {height:0}, {height:200})
+			  .fromTo(".l4", 1, {width:0}, {width:200})
+
+			tl.timeScale(4) //play faster
+
+	});
+
+})(jQuery, this);

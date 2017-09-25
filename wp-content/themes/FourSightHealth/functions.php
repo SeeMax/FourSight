@@ -125,10 +125,10 @@ function theme_scripts()
         wp_register_script('attrGSAP', get_template_directory_uri() . '/js/lib/AttrPlugin.min.js', array(), '0.6.0', true); // attrGSAP
         wp_enqueue_script('attrGSAP'); // Enqueue it!
 
-        wp_register_script('parallax', get_template_directory_uri() . '/js/lib/parallax.min.js', array('jquery'), '1.4.2', true); // parallax
-        wp_enqueue_script('parallax'); // Enqueue it!
+        wp_register_script('splitText', get_template_directory_uri() . '/js/lib/SplitText.min.js', array(), '0.6.0', true); // attrGSAP
+        wp_enqueue_script('splitText'); // Enqueue it!
 
-        wp_register_script('theme-script', get_template_directory_uri() . '/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_register_script('theme-script', get_template_directory_uri() . '/scripts.js', array('jquery'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('theme-script'); // Enqueue it!
     }
 }
@@ -151,6 +151,10 @@ function theme_styles()
     // FONTS CSS
     wp_register_style('theme_fonts', get_template_directory_uri() . '/fonts/fonts.css', array(), '1.0', 'all');
     wp_enqueue_style('theme_fonts'); // Enqueue it!
+
+    // FONTS AWESOME ICONS
+    wp_register_style('fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '1.0', 'all');
+    wp_enqueue_style('fontawesome'); // Enqueue it!
 
     // SLICK SLIDER CSS-1
     wp_register_style('SlickSlider', get_template_directory_uri() . '/css/slick.css', array(), '1.0', 'all');
@@ -267,9 +271,9 @@ function html5wp_index($length) // Create 20 Word Callback for Index page Excerp
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
-function html5wp_custom_post($length)
+function theme_custom_post($length)
 {
-    return 40;
+    return 30;
 }
 
 // Create the Custom Excerpts callback
@@ -293,7 +297,8 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    // return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return ' [...]';
 }
 
 // Remove Admin bar
@@ -383,12 +388,15 @@ function html5blankcomments($comment, $args, $depth)
 
 // Add Actions
 add_action('init', 'theme_scripts'); // Add Custom Scripts to wp_head
-add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
+// add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'theme_styles'); // Add Theme Stylesheet
 add_action('init', 'register_theme_menu'); // Add HTML5 Blank Menu
 add_action('init', 'create_post_type_testiominial');
 add_action('init', 'create_post_type_bio');
+add_action('init', 'create_post_type_client');
+add_action('init', 'create_post_type_affiliations');
+add_action('init', 'create_post_type_advisors');
 add_action('init', 'create_post_type_article');
 add_action('init', 'create_post_type_podcast');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
@@ -421,6 +429,7 @@ add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove 
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
 add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
+add_filter( 'excerpt_length', 'theme_custom_post', 999 );
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
@@ -478,6 +487,62 @@ function create_post_type_bio()
     );
 }
 
+function create_post_type_client()
+{
+  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'theme_template');
+    register_post_type( 'clients',
+        array(
+            'labels' => array(
+                'name' => ('Clients'),
+                'singular_name' => ('Client')
+            ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'Client'),
+        'supports' => array('title','editor'),
+        'menu_icon'   => 'dashicons-groups'
+        )
+    );
+}
+
+function create_post_type_affiliations()
+{
+  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'theme_template');
+    register_post_type( 'affiliations',
+        array(
+            'labels' => array(
+                'name' => ('Affiliations'),
+                'singular_name' => ('Affiliation')
+            ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'Affiliation'),
+        'supports' => array('title','editor'),
+        'menu_icon'   => 'dashicons-shield-alt'
+        )
+    );
+}
+
+function create_post_type_advisors()
+{
+  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'theme_template');
+    register_post_type( 'advisors',
+        array(
+            'labels' => array(
+                'name' => ('Advisors'),
+                'singular_name' => ('Advisor')
+            ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'Advisors'),
+        'supports' => array('title','editor'),
+        'menu_icon'   => 'dashicons-shield'
+        )
+    );
+}
 
 function create_post_type_article()
 {
@@ -516,6 +581,120 @@ function create_post_type_podcast()
         )
     );
 }
+
+
+// CREATE A GLOBAL OPTIONS PAGE
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page(array(
+        'page_title'    => 'Global Options',
+        'menu_title'    => 'Global Options',
+        'menu_slug'    => 'global_options',
+        'capability'    => 'edit_posts',
+        'redirect'    => false,
+                'icon_url' => 'dashicons-media-spreadsheet',
+        'position' => 6
+    ));
+}
+
+
+
+function wpb_change_title_text( $title ){
+     $screen = get_current_screen();
+  
+     if  ( 'bio' == $screen->post_type ) {
+          $title = 'Their Name';
+     } 
+
+     if ( 'advisors' == $screen->post_type ) {
+          $title = 'Advisory Name';
+     }
+
+    if ( 'affiliations' == $screen->post_type ) {
+        $title = 'Affiliation Name';
+    }
+
+    if ( 'clients' == $screen->post_type ) {
+        $title = 'Client Name';
+    }
+  
+     return $title;
+}
+  
+add_filter( 'enter_title_here', 'wpb_change_title_text' );
+
+
+/*------------------------------------*\
+    Woo Commerce Setup
+\*------------------------------------*/
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+
+function my_theme_wrapper_start() {
+  echo '<section class="woo-wrapper">';
+}
+
+function my_theme_wrapper_end() {
+  echo '</section>';
+}
+
+
+/*----------------------------------------*\
+    Get First Post if no featured image
+\*----------------------------------------*/
+
+function catch_that_image() {
+  global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches[1][0];
+
+  if(empty($first_img)) {
+
+    if ( is_category() || is_tag() ) {
+        $first_img = "../../wp-content/themes/FourSightHealth/img/default-post-image.jpg";
+    } else {
+        $first_img = "../wp-content/themes/FourSightHealth/img/default-post-image.jpg";
+    }
+  }
+  return $first_img;
+}
+
+
+/*-----------------------------------------------*\
+    Add Active Class to Parent and Child Items
+\*-----------------------------------------------*/
+
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+
+function special_nav_class ($classes, $item) {
+    if (in_array('current-menu-ancestor', $classes) || in_array('current-menu-item', $classes) ){
+        $classes[] = 'active ';
+    }
+    return $classes;
+}
+
+
+/*-----------------------------------------------*\
+    Show more posts on archive page
+\*-----------------------------------------------*/
+
+function wpse63424_filter_pre_get_posts( $query ) {
+    if ( ! is_main_query() ) {
+        return $query;
+    } else {
+        if ( is_category() || is_tag() ) {
+            $query->set( 'posts_per_page',-1 );
+        }
+        return $query;
+    }
+}
+add_filter( 'pre_get_posts', 'wpse63424_filter_pre_get_posts' );
 
 /*------------------------------------*\
 	ShortCode Functions

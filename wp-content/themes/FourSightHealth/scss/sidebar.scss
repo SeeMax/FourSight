@@ -1,0 +1,141 @@
+@import "colors";
+
+.sidebar{
+	/*border-left:2px solid $green;*/
+	width:100%;
+	text-align:left;
+
+	a {
+		font-size:14px;
+		color:$darkGray;
+		transition:color .3s;
+
+    &:hover {
+    	color:$teal;
+   	}
+
+   	&:after {
+	    content:" > ";
+	    font-weight: 800;
+	   	color:$teal;
+	  }
+	}
+
+	h3 {
+		text-transform: uppercase;
+		position: relative;
+		width:100%;
+		/*top:30px;
+		left:0px;*/
+		text-align: left;
+		padding:0px 0px 4px 0px;
+		/*background-color: $lightGray;*/
+		/*border-top: 1px solid $teal;*/
+		border-bottom: 1px solid $teal;
+		color:$teal;
+		font-size: 14px;
+		line-height: 1.5;
+		font-weight: 700;
+		margin-bottom: 7px;
+	}
+
+	ul {
+		margin-bottom:28px;
+	}
+
+	li {
+		padding:4px 0px 6px 0px;
+		font-weight:700;
+		line-height: 1.3
+	}
+
+	.wpp-date {
+		display: none;
+	}
+
+	.tagcloud {
+		padding:8px 0px 8px 0px;
+
+		a {
+			color:$darkGray;
+  		font-size: 14px !important;
+  		line-height: 1.6em;
+	    display: inline-block;
+	    font-weight: 700;
+	  
+	    &:after {
+	    	content:" / ";
+	    	color:$teal;
+	    }
+	  }
+	}
+
+	.sidebar-mailchimp {
+		margin-bottom: 45px;
+
+		.sidebar-button {
+			cursor:pointer;
+			position: relative;
+			padding:12px 34px 8px 34px;
+			margin-top:10px;
+			width:auto;
+			min-width:0;
+			border: 1px solid $teal;
+			font-weight:700;
+			font-size:12px;
+			text-transform: uppercase;
+			line-height: 1;
+			border-radius:30px;
+			color:white;
+			background:$teal;
+			transition:all .3s;
+
+			a {
+				color:$teal;
+				display: block;
+				width: 100%;
+				height:100%;
+				position: absolute;
+				top:0;
+				left:0;	
+			}
+
+			&:hover {
+				background:white;
+				color:$teal;
+
+				a {
+				color:teal;
+				}
+			}
+		}
+
+		input[type=email] {
+			border:1px solid $lightGray;
+			padding:5px;
+			width:100%;
+			font-size: 14px;
+			color: $darkGray;
+			margin-top:10px;
+
+			&:focus {
+				border:1px solid $green;
+			}
+		}
+	}
+}
+
+
+
+// 1024px And Below
+@media screen and (max-width: 1024px){
+
+	
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+	
+} //End 767px

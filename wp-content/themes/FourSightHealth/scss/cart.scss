@@ -1,0 +1,89 @@
+@import "colors";
+
+.Cart-page {
+
+	.content {
+		padding-top:10px;
+	}
+
+	article {
+		width:100%;
+		margin-top:30px;
+	}
+
+	.woocommerce {
+
+		.woocommerce-cart-form {
+				input.button {
+				font-size:14px;
+				min-width: 0;
+				margin-top:0;
+			}	
+		}
+
+		.cart {
+			input.button {
+				font-size:14px;
+				min-width: 0;
+				margin-top:0;
+			}	
+		}
+
+		table.shop_table {
+			vertical-align:middle;
+
+			input.button {
+				font-size:14px;
+				min-width: 0;
+				margin:10px 0;
+			}	
+
+			.input-text {
+				margin:10px 0;
+			}
+
+			a {
+				color:$blue;
+			}
+
+			.product-thumbnail {
+
+			}
+		}
+
+		a.button.alt {
+			background:white;
+			color:$green;
+		}
+	}
+
+	.coupon .input-text {
+		width:200px !important;
+		padding:10px 10px;
+		margin:12px 10px 12px 0 !important;
+	}
+
+	.cart_totals {
+
+		h2 {
+			padding-left:10px;
+			margin:20px 0 10px 0;
+			font-size:20px;
+			text-align: left;
+		}
+	}
+}
+
+
+
+// 1024px And Below
+@media screen and (max-width: 1024px){
+
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+
+} //End 767px

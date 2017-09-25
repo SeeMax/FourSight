@@ -1,0 +1,118 @@
+@import "colors";
+
+.contact-page {
+
+	section {
+		background: $lightGray;
+		padding-top:40px;
+	}
+
+	h2 {
+		color:$teal;
+	}
+
+	hr {
+		background: $teal;
+	}
+
+	.contact-top {
+		position: absolute;
+		top:-1px;
+		left:0;
+		width:100%;
+		height:95px;
+		display:flex;
+
+		svg {
+			width:100%;
+			height:100%;
+		}
+
+		.section-topper-polygon {
+			fill:white;
+		}
+	}
+
+		p {
+			text-align: left;
+	    line-height: .4em;
+	    margin-bottom: 30px;
+	    font-weight: 700;
+		}
+
+		.wpcf7 {
+			width:60%;
+			margin-top:35px;
+		}
+		
+		p label {
+			text-align: left;
+			color:$gray;
+		}
+
+		input[type=email], input[type=text], textarea {
+			border:1px solid $lightGray;
+			padding:5px;
+			width:100%;
+			font-size: 16px;
+			margin-top:10px;
+
+			&:focus {
+				border:1px solid $green;
+			}
+		}
+
+		textarea {
+			line-height: 1.2;
+		}
+
+		input[type=submit] {
+			cursor:pointer;
+			position: relative;
+			padding:12px 34px 8px 34px;
+			margin-top:10px;
+			width:auto;
+			min-width:0;
+			border: 2px solid $green;
+			font-weight:800;
+			font-size:16px;
+			text-transform: uppercase;
+			line-height: 1;
+			border-radius:30px;
+			color:white;
+			background:$green;
+			transition:all .3s;
+
+			a {
+				color:white;
+				display: block;
+				width: 100%;
+				height:100%;
+				position: absolute;
+				top:0;
+				left:0;	
+			}
+
+			&:hover {
+				color:$green;
+				background:white;
+
+				a {
+				color:teal;
+				}
+			}
+		}
+
+}
+
+// 1024px And Below
+@media screen and (max-width: 1024px){
+
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+
+} //End 767px

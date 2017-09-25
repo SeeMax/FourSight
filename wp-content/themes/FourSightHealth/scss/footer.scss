@@ -1,0 +1,203 @@
+@import "colors";
+
+.footer {
+
+	.content {
+		text-align: left;
+		padding-top:90px;
+		padding-bottom:120px;
+	}
+
+	h2 {
+		text-align: left;
+		border-left:4px solid $green;
+		line-height: 1;
+		padding-top:7px;
+		padding-left:10px;
+	}
+
+}
+
+.footer-social {
+	
+	.content {
+		justify-content: space-between;
+	}
+
+	.button {
+		margin-top:15px;
+		min-width: 0px;
+		font-size:12px;
+	}
+
+	.social-right {
+		max-width: 350px;
+		height:auto;
+		width:auto;
+		outline:0;
+		font-size:12px;
+
+		h4 {
+			text-align: left;
+			font-weight:800;
+			margin-top:6px;
+			margin-bottom:10px;
+		}
+
+		p {
+			padding:0;
+		}
+
+		.button {
+			margin-top:15px;
+			min-width: 0px;
+			font-size:12px;
+		}
+
+		input[type=email] {
+			border:1px solid $lightGray;
+			padding:5px;
+			width:100%;
+			color: $gray;
+			margin-top:15px;
+
+			&:focus {
+				border:1px solid $green;
+			}
+		}
+	}
+}
+
+.social-icons {
+	width:100%;
+	padding-left:15px;
+	margin-top:25px;
+
+	.fa-twitter {
+		background:#69ABE8;
+	}
+
+	.fa-facebook {
+		background:#386392;
+	}
+
+	.fa-instagram {
+		background:#5C4437;
+	}
+
+	.fa-youtube {
+		background:#CC3B31;
+	}
+
+	.fa {
+		position: relative;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width:50px;
+		height:50px;
+		margin-right:10px;
+		border-radius: 50%;
+		font-size:26px;
+		color:white;
+		transition:all .5s ease-in-out;
+
+		&:hover {
+			color:$blue;
+			background: $green;
+		}
+
+		a {
+			display: block;
+			width:100%;
+			height:100%;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+	}
+
+	
+}
+
+.footer-links {
+	position: relative;
+	background:$blue;
+	color:white;
+	font-size:12px;
+
+	.content {
+		padding-top:20px;
+		padding-bottom:20px;
+		justify-content: space-between;
+	}
+
+	.seperator {
+		color:$green;
+		font-weight: 800;
+	}
+}
+
+.footer-links-top {
+	position: absolute;
+	bottom:99%;
+	left:0;
+	width:100%;
+	height:95px;
+	display:flex;
+
+	svg {
+		width:100%;
+		height:100%;
+	}
+
+	.footer-top-polygon {
+		fill:$blue;
+	}
+}
+
+
+.contact-links {
+
+}
+
+.admin-links {
+
+	a	{
+
+	}
+}
+
+
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+	.footer {
+
+		.content {
+			padding-top:40px;
+		}
+
+		.social-right {
+			margin-top:50px;
+		}
+
+		.social-icons {
+			padding-left:0;
+		}
+	}
+
+	.contact-links {
+		line-height:1.8;
+	}
+
+	.admin-links {
+		margin-top:20px;
+	}
+
+	.footer-links-top {
+		height:40px;
+	}
+}
