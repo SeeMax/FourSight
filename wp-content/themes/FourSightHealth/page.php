@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
-	<main role="main">
+	<main class="standard-page" role="main">
 		<!-- section -->
 		<section class="<?php the_title(); ?>-page">
 			<div class="content">
 
-				<h2><?php the_title(); ?></h2>
+				<h1><?php the_title(); ?></h1>
 				<div class="hr-container"><hr></div>
 
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>

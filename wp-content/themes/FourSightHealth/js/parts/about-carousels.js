@@ -3,6 +3,7 @@
 	
 	$(function () {
 
+			
 		$('.clientCarousel').imagesLoaded(function () {
     	
 		  $('.clientCarousel').slick({
@@ -15,7 +16,15 @@
 			  autoplaySpeed: 3000, 
 			  pauseOnHover:true,
 			  cssEase: 'linear',
-			  appendDots:$('.clientDots')
+			  appendDots:$('.clientDots'),
+			  responsive: [
+		    {
+		      breakpoint: 1023, //at 600px wide, only 2 slides will show
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		    ]
 			})
 		});
 
@@ -33,9 +42,15 @@
 			  speed:2000,
 			  pauseOnHover:false,
 			  cssEase: 'linear',
-			  // dots: true, 
-			  // appendDots:$('.advisorDots'),
-			  initialSlide: 1
+			  initialSlide: 1,
+			  responsive: [
+			  {
+		      breakpoint: 1023, //at 600px wide, only 2 slides will show
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		    ]
 			})
 		});
 
@@ -45,20 +60,26 @@
 		  $('.aboutTestimonialCarousel').slick({
 		    slidesToShow: 2,
 			  slidesToScroll: 1,
-			  autoplay: true,
+			  autoplay: false,
 			  infinite: true,
 			  dots: true, 
 			  arrows: false, 
 			  autoplaySpeed: 3000, 
 			  pauseOnHover:true,
 			  cssEase: 'linear',
-			  appendDots:$('.testimonialDots')
+			  appendDots:$('.testimonialDots'),
+			  responsive: [
+		    {
+		      breakpoint: 1023, //at 600px wide, only 2 slides will show
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		    ]
 			})
 		});
 
-
 	});
-
 })(jQuery, this);
 
 

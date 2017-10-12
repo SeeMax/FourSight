@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Menu Cart\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 16:25+0100\n"
+"POT-Creation-Date: 2017-08-07 16:23+0200\n"
 "PO-Revision-Date: 2016-06-25 10:33+0200\n"
 "Last-Translator: Ewout Fernhout <chocolade@extrapuur.nl>\n"
 "Language-Team: WP Overnight <support@wpovernight.com>\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-wpmenucart-data.php:126
-#: includes/class-wpmenucart-settings.php:432
-#: includes/class-wpmenucart-settings.php:439
+#: includes/class-wpmenucart-settings.php:449
+#: includes/class-wpmenucart-settings.php:456
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
@@ -36,18 +36,18 @@ msgid_plural "%d "
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-wpmenucart-data.php:286
-#: includes/class-wpmenucart-settings.php:395
+#: includes/class-wpmenucart-data.php:291
+#: includes/class-wpmenucart-settings.php:412
 msgid "your cart is currently empty"
 msgstr ""
 
-#: includes/class-wpmenucart-data.php:297
-#: includes/class-wpmenucart-settings.php:378
+#: includes/class-wpmenucart-data.php:301
+#: includes/class-wpmenucart-settings.php:395
 msgid "Start shopping"
 msgstr ""
 
-#: includes/class-wpmenucart-data.php:308
-#: includes/class-wpmenucart-settings.php:412
+#: includes/class-wpmenucart-data.php:311
+#: includes/class-wpmenucart-settings.php:429
 msgid "View your shopping cart"
 msgstr ""
 
@@ -98,210 +98,218 @@ msgstr ""
 msgid "Select which e-commerce plugin you would like Menu Cart to work with."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:134
+#: includes/class-wpmenucart-settings.php:136
+msgid "Hide theme shopping cart icon"
+msgstr ""
+
+#: includes/class-wpmenucart-settings.php:150
 msgid "Select the menu(s) in which you want to display the Menu Cart"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:146
+#: includes/class-wpmenucart-settings.php:162
 msgid "Always display cart"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:153
+#: includes/class-wpmenucart-settings.php:169
 msgid "Always display cart, even if it's empty."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:159
+#: includes/class-wpmenucart-settings.php:175
 msgid "Use Flyout"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:166
+#: includes/class-wpmenucart-settings.php:182
 msgid "Select to display cart contents in menu fly-out."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:172
+#: includes/class-wpmenucart-settings.php:188
 msgid "Flyout item truncation"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:181
+#: includes/class-wpmenucart-settings.php:197
 msgid ""
 "Maximum number of characters for product names in the flyout. To use full "
 "product names, enter 0."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:187
+#: includes/class-wpmenucart-settings.php:203
 msgid "Flyout item number"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:195
+#: includes/class-wpmenucart-settings.php:211
 msgid "Unlimited"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:207
+#: includes/class-wpmenucart-settings.php:223
 msgid "Set maximum number of products to display in fly-out."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:213
+#: includes/class-wpmenucart-settings.php:229
 msgid "Display shopping cart icon."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:225
+#: includes/class-wpmenucart-settings.php:241
 msgid "Choose a cart icon."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:253
+#: includes/class-wpmenucart-settings.php:269
 msgid "Custom Icon"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:260
+#: includes/class-wpmenucart-settings.php:276
 msgid ""
 "Upload a custom menu cart icon here if you do not want to use one of the "
 "icons above. Make sure you resize the icon before uploading. Icon should "
 "usually be 15-30px tall."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:261
+#: includes/class-wpmenucart-settings.php:277
 msgid "Select or upload a custom menu cart icon."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:262
+#: includes/class-wpmenucart-settings.php:278
 msgid "Set image"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:263
+#: includes/class-wpmenucart-settings.php:279
 msgid "Remove image"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:269
+#: includes/class-wpmenucart-settings.php:285
 msgid "Contents of the menu cart item"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:277
+#: includes/class-wpmenucart-settings.php:293
 msgid "Items Only."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:278
+#: includes/class-wpmenucart-settings.php:294
 msgid "Price Only."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:279
+#: includes/class-wpmenucart-settings.php:295
 msgid "Both price and items."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:280
+#: includes/class-wpmenucart-settings.php:296
 msgid "Custom:"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:288
+#: includes/class-wpmenucart-settings.php:305
 msgid ""
 "You can use the following placeholders: {{icon}}, {{# items}}, {{#}}, "
 "{{items}}, {{price}}"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:296
+#: includes/class-wpmenucart-settings.php:313
 msgid "Select the alignment that looks best with your menu."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:304
+#: includes/class-wpmenucart-settings.php:321
 msgid "Align Left."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:305
+#: includes/class-wpmenucart-settings.php:322
 msgid "Align Right."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:306
+#: includes/class-wpmenucart-settings.php:323
 msgid "Default Menu Alignment."
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:330
+#: includes/class-wpmenucart-settings.php:347
 msgid "Use Built-in AJAX"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:337
+#: includes/class-wpmenucart-settings.php:354
 msgid ""
 "Enable this option to use the built-in AJAX / live update functions instead "
 "of the default ones from WooCommerce or Jigoshop"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:362
+#: includes/class-wpmenucart-settings.php:379
 msgid "Texts"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:369
+#: includes/class-wpmenucart-settings.php:386
 msgid "Empty cart (main item hover)"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:380
 #: includes/class-wpmenucart-settings.php:397
 #: includes/class-wpmenucart-settings.php:414
-#: includes/class-wpmenucart-settings.php:444
-#: includes/class-wpmenucart-settings.php:470
+#: includes/class-wpmenucart-settings.php:431
+#: includes/class-wpmenucart-settings.php:461
 #: includes/class-wpmenucart-settings.php:487
+#: includes/class-wpmenucart-settings.php:504
 msgid "Leave empty for default"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:386
+#: includes/class-wpmenucart-settings.php:403
 msgid "Empty cart (flyout)"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:403
+#: includes/class-wpmenucart-settings.php:420
 msgid "View cart (main item hover & flyout)"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:420
+#: includes/class-wpmenucart-settings.php:437
 msgid "Items"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:430
+#: includes/class-wpmenucart-settings.php:447
 msgid "Single"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:437
+#: includes/class-wpmenucart-settings.php:454
 msgid "Plural & zero"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:452
+#: includes/class-wpmenucart-settings.php:469
 msgid "Links"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:459
+#: includes/class-wpmenucart-settings.php:476
 msgid "Cart URL"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:476
+#: includes/class-wpmenucart-settings.php:493
 msgid "Shop URL"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:512
+#: includes/class-wpmenucart-settings.php:529
 msgid "Additional CSS classes"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:519
+#: includes/class-wpmenucart-settings.php:536
 msgid "Main menu item (li)"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:532
+#: includes/class-wpmenucart-settings.php:549
 msgid "Main menu item (a)"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:545
+#: includes/class-wpmenucart-settings.php:562
 msgid "Flyout (ul)"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:558
+#: includes/class-wpmenucart-settings.php:575
 msgid "Flyout item (li)"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:571
+#: includes/class-wpmenucart-settings.php:588
 msgid "Flyout item (a)"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:585
+#: includes/class-wpmenucart-settings.php:602
 msgid "Misc"
 msgstr ""
 
-#: includes/class-wpmenucart-settings.php:592
+#: includes/class-wpmenucart-settings.php:609
 msgid "Custom styles"
+msgstr ""
+
+#: includes/compatibility/class-wc-core-compatibility.php:222
+msgid "WooCommerce"
 msgstr ""
 
 #: includes/shops/wpmenucart-eshop-pro.php:48
@@ -315,26 +323,35 @@ msgstr ""
 msgid "2"
 msgstr ""
 
-#: wp-menu-cart-pro.php:298
+#: wp-menu-cart-pro.php:311
 msgid ""
 "WP Menu Cart Pro could not detect an active shop plugin. Make sure you have "
 "activated at least one of the supported plugins."
 msgstr ""
 
-#: wp-menu-cart-pro.php:299
+#: wp-menu-cart-pro.php:312
 msgid "Hide this notice"
 msgstr ""
 
-#: wp-menu-cart-pro.php:303
+#: wp-menu-cart-pro.php:316
 msgid ""
 "An old version of WooCommerce Menu Cart is currently activated, you need to "
 "disable or uninstall it for WP Menu Cart to function properly"
 msgstr ""
 
-#: wp-menu-cart-pro.php:309
+#: wp-menu-cart-pro.php:322
 msgid ""
 "The free version of WP Menu Cart is currently activated, you need to disable "
 "or uninstall it for WP Menu Cart Pro to function properly"
+msgstr ""
+
+#: wp-menu-cart-pro.php:332
+msgid ""
+"WP Menu Cart Pro requires PHP 5.3 or higher (5.6 or higher recommended)."
+msgstr ""
+
+#: wp-menu-cart-pro.php:333
+msgid "How to update your PHP version"
 msgstr ""
 
 #~ msgid ""

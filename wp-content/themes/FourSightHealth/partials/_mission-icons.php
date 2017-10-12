@@ -1,4 +1,4 @@
-<div class="mission-icons">
+<div class="mission-icons missionIconsTrigger">
 	<div class="single-icon">
 		<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In  -->
 		<svg version="1.1"

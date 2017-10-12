@@ -1,9 +1,12 @@
 <?php get_header(); ?>
 	<main class="archive-page" role="main">
+		<section class="archive-hero articlesTrigger">
+			<div class="content">						
+				<h2>News about <?php single_cat_title(); ?></h2>
+			</div>
+		</section>
 		<section class="archive-section archiveTrigger">
 			<div class="content">	
-				<h2><?php _e( 'Posts In ', 'html5blank' ); single_cat_title(); ?></h2>
-				<!-- <div class="hr-container"><hr></div> -->
 				<div class="archive-group">
 					<?php while ( have_posts() ) : the_post(); ?>			
 						<?php get_template_part('loop'); ?>

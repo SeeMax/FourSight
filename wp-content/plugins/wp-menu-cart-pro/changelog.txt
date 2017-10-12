@@ -1,3 +1,7 @@
+3.1.5 (2017-09-08)
+* Fix: Elementor compatibility
+* Translations: Updated POT & Dutch translations
+
 3.1.4 (2017-07-17)
 * Tweak: improved WC2.6 compatibility for caching
 * Feature: Setting to hide built in theme carts

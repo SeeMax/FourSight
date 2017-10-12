@@ -32,17 +32,14 @@
 	}
 
 	.hire-cta-section {
-		background: $blue;
-		color:white;
-		border-bottom:3px solid $green;
-		margin-bottom:50px;
 
 		.content {
-			padding-top:190px;
+			padding-top:50px;
+			/*padding-bottom:50px;*/
 		}
 
 		h2 {
-			color:white;
+
 		}
 	}
 
@@ -63,6 +60,62 @@
 			fill:white;
 		}
 	}	
+
+	.engagement-section {
+		background: $blue;
+		margin-bottom:50px;
+	
+		h2 {
+			width:90%;
+			color:$green;
+		}
+
+		p {
+
+		}
+	}
+	.engagement-top {
+		
+		svg {
+			width:100%;
+			height:100%;
+		}
+
+		.section-topper-polygon {
+			fill:white;
+		}
+	}
+				
+	.engagement-list {
+		width:70%;
+		display: flex;
+		flex-wrap:wrap;
+		justify-content:space-between;
+		align-content:flex-start;
+	}
+
+	.single-engagement {
+		width:32%;
+		height:auto;
+		text-align: left;
+		margin-bottom:10px;
+		border:1px solid white; 
+	}
+
+	.engagement-date {
+		color:$blue;
+		background:white;
+		line-height: 1;
+		padding:8px 14px 5px 14px;
+	}
+
+	.engagement-location {
+		color:white;
+		font-size:20px;
+		font-weight: 700;
+		line-height: 1;
+		padding:22px 14px 30px 14px;
+	}
 }
 
 
@@ -106,19 +159,20 @@
 		}
 
 		.hire-cta-section {
-			background: $blue;
-			color:white;
-			border-bottom:3px solid $green;
 			margin-bottom:50px;
 
 			.content {
-				padding-top: 100px;
-				padding-bottom: 100px;
+				padding-top: 50px;
+				padding-bottom: 70px;
 			}
 		}
 
 		.hire-cta-top {
 			height:40px;
+		}
+
+		.single-engagement {
+			width:100%;	
 		}
 	}
 } //End 767px

@@ -114,6 +114,14 @@
 			color:$green;
 			font-weight:700;
 		}
+
+		&:empty {
+			display: none;
+		}
+	}
+	
+	p:empty {
+   display: none;
 	}
 }
 

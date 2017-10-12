@@ -6,7 +6,9 @@
 		
 
 	.video-section {
-		background:black;
+		background:white;
+		max-width:900px;
+		margin:10px auto; 
 
 		.content {
 			max-width:100%;
@@ -19,7 +21,7 @@
 			z-index:1 !important;
 			position: relative;
 			height:0;
-			padding-top:56.25%;
+			padding-bottom:56.25%;
 		}
 
 		.play-video {
@@ -67,7 +69,12 @@
 	.mission-section {
 
 		.content {
+			padding-top: 50px;
 			padding-bottom: 50px;
+		}
+
+		p {
+			width:75%;
 		}
 
 	}
@@ -190,13 +197,13 @@
 
 		.post-date {
 			position: absolute;
-			top:30px;
+			top:0px;
 			left:0px;
 			padding:10px 30px;
 			display: flex;
 			justify-content: center;
 			align-content: center;
-			background-color: rgba(0, 0, 0 ,.8);
+			background-color: black;
 			color:$green;
 			font-size: 12px;
 			font-weight: 500;
@@ -355,6 +362,13 @@
     	.hero-helmet {
     		height:65vh;
     	}
+    }
+
+    .mission-section {
+
+    	p {
+				width:100%;
+			}
     }
 
     .news-section {

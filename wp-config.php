@@ -18,6 +18,11 @@
  * @package WordPress
  */
 
+
+
+define('WP_HOME','http://localhost:8888/FourSight');
+define('WP_SITEURL','http://localhost:8888/FourSight');
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', '4sight');

@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 	<main class="archive-page" role="main">
+		<section class="archive-hero articlesTrigger">
+			<div class="content">						
+				<h2><?php _e( 'Archives', 'html5blank' ); ?></h2>
+			</div>
+		</section>
 		<section class="archive-section archiveTrigger">
 			<div class="content">	
-				<h2><?php _e( 'Archives', 'html5blank' ); ?></h2>
-
-				<!-- <div class="hr-container"><hr></div> -->
 				<div class="archive-group">
 					<?php while ( have_posts() ) : the_post(); ?>
 						<?php get_template_part('loop'); ?>

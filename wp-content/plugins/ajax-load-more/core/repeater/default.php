@@ -4,7 +4,7 @@
 		<?php the_title();?>
 	</h4>
 	<div class="article-author">
-		By <?php the_author();?> on <?php the_date(); ?>
+		<?php the_date(); ?>
 	</div>
 	<div class="article-preview-image">
 		<?php if ( get_the_post_thumbnail($post_id) != '' ) {

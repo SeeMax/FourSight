@@ -14,8 +14,13 @@ body {
 .wrapper {
 	width:100%;
 	min-height: 100%;
+	height:100%;
 	margin:0 auto;
-	overflow: hidden;
+
+	&:after {
+  	content: "";
+  	display: block;
+	}
 }
 
 main {
@@ -42,6 +47,7 @@ section {
 	margin:0px auto;
 	text-align: center;
 	padding:100px 25px 150px 25px;
+	overflow:hidden;
 }
 
 a {
@@ -164,8 +170,6 @@ hr {
 .blue-button {
 	color:$teal;
 }
-
-
 
 
 // 1024px And Below

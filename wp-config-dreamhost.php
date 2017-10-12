@@ -18,6 +18,12 @@
  * @package WordPress
  */
 
+
+
+
+define('WP_HOME','http://www.4sighthealth.seemaxstaging.com');
+define('WP_SITEURL','http://www.4sighthealth.seemaxstaging.com');
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', '4sighthealth_seemaxstagi');

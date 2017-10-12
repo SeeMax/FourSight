@@ -12,6 +12,7 @@
 		    	chars = mySplitText.chars;
 
 					var missionTL = new TimelineMax()
+							missionTLIcons = new TimelineMax()
 							versusTL = new TimelineMax()
 							blogTL = new TimelineMax()
 							testimonialsTL = new TimelineMax()
@@ -86,36 +87,32 @@
 						      .set(socialIcons, {opacity:0, x:-30})
 						      .set([bookImg, bookPage], {rotationY:-90, transformOrigin:"left center", transformPerspective:1800})
 
-							
 					missionTL.to($(".missionTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 									.staggerFrom($(".missionTrigger").find(chars), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 									.to($(".missionTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
-									// ICON 1 ANIMATIONS
-									.to(chartBorder, .000001, {opacity:1})
-						      .to(thinBorder1, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
-						      .to(thickBorder1, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
-						      .to(chartBorder, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
-						      .to(chartLine, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
-						      .to(chartArrow, .000001, {opacity:1},"border1+=.09")
-						      .to(chartArrow, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1+=.09")
-						      .to(title1, uniTime1+.4, {opacity:1, y:0, ease:uniEase1}, "border1-=.4")
-						      .to(thinBorder2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
-						      .to(thickBorder2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
-						      .to(plusSign2, .000001, {opacity:1}, "border2-=1")
-		      				.to(plusSign2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
-		      				.to(person2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
-						      .to(title2, uniTime1, {opacity:1, y:0, ease:uniEase1}, "border2-=1")
-						      .to(thinBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
-						      .to(thickBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
-						      .to(bookBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
-						      .to(lines3, .000001, {opacity:1}, "border3-=.4")
-		      				.to(plus3, .000001, {opacity:1}, "border3-=.11")
-		      				.to(lines3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
-		      				.to(plus3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.1")
-						      
-						      .to(title3, uniTime1, {opacity:1, y:0, ease:uniEase1}, "border3-=.4")
-
-
+									
+					missionTLIcons.to(chartBorder, .000001, {opacity:1})
+									      .to(thinBorder1, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
+									      .to(thickBorder1, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
+									      .to(chartBorder, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
+									      .to(chartLine, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
+									      .to(chartArrow, .000001, {opacity:1},"border1+=.09")
+									      .to(chartArrow, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1+=.09")
+									      .to(title1, uniTime1+.4, {opacity:1, y:0, ease:uniEase1}, "border1-=.4")
+									      .to(thinBorder2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
+									      .to(thickBorder2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
+									      .to(plusSign2, .000001, {opacity:1}, "border2-=1")
+					      				.to(plusSign2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
+					      				.to(person2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
+									      .to(title2, uniTime1, {opacity:1, y:0, ease:uniEase1}, "border2-=1")
+									      .to(thinBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
+									      .to(thickBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
+									      .to(bookBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
+									      .to(lines3, .000001, {opacity:1}, "border3-=.4")
+					      				.to(plus3, .000001, {opacity:1}, "border3-=.11")
+					      				.to(lines3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
+					      				.to(plus3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.1")									      
+									      .to(title3, uniTime1, {opacity:1, y:0, ease:uniEase1}, "border3-=.4")
 
 					versusTL.to(vsTop, .4, {height:95}, "introIn")
 									.to($(".versusTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
@@ -125,7 +122,6 @@
 									.staggerTo(bookPage, .3, {rotationY:0, transformOrigin:"left center",ease:Back.easeOut.config(1)}, ".01", "+=.6")
 									.to(bookImg, .8, {rotationY:0, transformOrigin:"left center",ease:Back.easeOut.config(1)}, "-=.3")
 	 
-							
 					blogTL.to($(".blogTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 									.staggerFrom($(".blogTrigger").find(chars), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 									.to($(".blogTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
@@ -138,7 +134,6 @@
 												.to($(".testimonialCarousel"), .3, {opacity:1})
 												.to($(".testimonialsTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
 
-
 					footerTL.to(footerTop, .3, {height:95})
 									.to($(".footer p"), .3, {opacity:1, y:0}, "footersIn")
 									.to(footerH4, .3, {opacity:1}, "footersIn")
@@ -146,19 +141,24 @@
 									.to(footerSignup, .3, {opacity:1, y:0}, "footersIn")
 									.to(footerSignupBtn, .3, {opacity:1, scale:1}, "footersIn")
 									.staggerTo(socialIcons, .1, {opacity:1, x:0}, .05, "footersIn")
-									
-									
-				
-					
+
+
 					var controller = new ScrollMagic.Controller();	
 					// Build Scene
 
 					var missionScene = new ScrollMagic.Scene({
 						triggerElement: ".missionTrigger",
-						triggerHook: "onEnter",
+						triggerHook: 'onEnter',
+						reverse: false,
+						offset: 0
+					}).setTween(missionTL)
+
+					var missionIconsScene = new ScrollMagic.Scene({
+						triggerElement: ".missionIconsTrigger",
+						triggerHook: 'onEnter',
 						reverse: false,
 						offset: 400
-					}).setTween(missionTL)
+					}).setTween(missionTLIcons)
 
 					var versusScene = new ScrollMagic.Scene({
 						triggerElement: ".versusTrigger",
@@ -189,7 +189,7 @@
 					}).setTween(footerTL)
 
 					// ADD THE SCENES ABOVE TO THE SCROLLMAGIC CONTROLLER
-					controller.addScene([missionScene, versusScene, blogScene, testimonialsScene, footerScene]);
+					controller.addScene([missionScene, missionIconsScene, versusScene, blogScene, testimonialsScene, footerScene]);
 				}	
 			});
     });

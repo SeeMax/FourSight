@@ -15,7 +15,15 @@
 			  autoplaySpeed: 3000, 
 			  pauseOnHover:true,
 			  cssEase: 'linear',
-			  appendDots:$('.testimonialDots')
+			  appendDots:$('.testimonialDots'),
+			  responsive: [
+			  {
+		      breakpoint: 1023, //at 600px wide, only 2 slides will show
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		    ]
 			})
 		});
 

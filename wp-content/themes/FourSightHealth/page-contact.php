@@ -9,9 +9,24 @@
 				</svg>				
 			</div>
 			<div class="content">
-				<h2><?php the_title(); ?></h2>
-				<div class="hr-container"><hr></div>
-				<?php echo do_shortcode('[contact-form-7 id="2080" title="Main Contact Form"]'); ?>
+			<!-- 	<h2><?php the_title(); ?></h2>
+				<div class="hr-container"><hr></div> -->
+				<!-- <?php echo do_shortcode('[contact-form-7 id="2080" title="Main Contact Form"]'); ?> -->
+				<div class="contact-tile-group">
+
+					<?php if( have_rows('contact_tile') ): while( have_rows('contact_tile') ) : the_row();?>
+					  <div class="contact-tile">
+					  	<h2><?php the_sub_field('contact_title'); ?></h2>
+					  	<div class="hr-container"><hr></div>
+						  <p><?php the_sub_field('contact_description'); ?></p>
+						  <div class="button">
+								<a href="mailto:<?php the_sub_field('contact_email'); ?>?subject=<?php the_sub_field('contact_subject'); ?>"></a>
+								Contact
+							</div>
+						</div>
+					<?php endwhile; endif;?>
+					
+				</div>
 			</div>
 		</section>
 	<?php endwhile; ?><!-- END LOOP -->

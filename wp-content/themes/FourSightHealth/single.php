@@ -11,7 +11,7 @@
 					</div>
 					<h1><?php the_title(); ?></h1>
 					<div class="article-author">
-						By <?php the_author();?><?php _e( ' in ', 'html5blank' ); the_category(' / '); // Separated by commas ?>
+						<?php _e( '', 'html5blank' ); the_category(' / '); // Separated by commas ?>
 					</div>
 				</div>
 				<div class="article-line"></div>

@@ -15,14 +15,13 @@
 					clientTL = new TimelineMax()
 					affiliationTL = new TimelineMax()
 					advisorTL = new TimelineMax()
-					meetDavidTL = new TimelineMax()
-					meetTeamTL = new TimelineMax()
 					rebelTL = new TimelineMax()
 					testimonialsTL = new TimelineMax()
 					footerTL = new TimelineMax()
 
 			var //Hero
 					clock = $(".clock-svg")
+					heroWheel = $(".heroWheel")
 					// what We Do
 					singleWe = $(".single-thing-we-do")
 					singleWeTitle = $(".thing-title")
@@ -38,17 +37,6 @@
 					advisorCarousel = $(".advisorCarousel")
 					affilTitle = $(".affil-title")
 					affilPosition = $(".affil-position")
-					// Meet David
-					meetTop = $(".meetTop")
-					meetDimage = $(".meetDavidTrigger .meet-image")
-					meetDname = $(".meetDavidTrigger .meet-name")
-					meetDtitle = $(".meetDavidTrigger .meet-title")
-					// Meet Team
-					meetTimage = $(".meetTeamTrigger .meet-image")
-					meetTname = $(".meetTeamTrigger .meet-name")
-					meetTtitle = $(".meetTeamTrigger .meet-title")
-					meetCircle = $(".meetCircle")
-					moreLink = $(".more-link")
 					//Rebel
 					rebelTop = $(".rebelTop")
 					rebelSlide = $(".rebelSlide")
@@ -82,6 +70,7 @@
 							.set(".button", {opacity:0, scale:.75})
 							// Hero
 							.set(clock, {scale:0, opacity:0, rotation:720})
+							.set(heroWheel, {scale:.5, opacity:0})
 							// Clients
 							.set(clientTop, {height:0})
 							.set(clientCarousel, {opacity:0})
@@ -98,16 +87,6 @@
 							.set(affilPosition, {opacity:0, y:-7})
 							// Advisory
 							.set(advisorCarousel, {opacity:0})
-							// Meet David
-							.set(meetTop, {height:0})
-							.set(meetDname, {rotationY:90, transformOrigin:"left center",transformPerspective:1000})
-							.set(meetDtitle, {rotationY:-90, transformOrigin:"right center",transformPerspective:1000})
-							.set(meetDimage, {rotationY:90, scale:.8, transformOrigin:"center center",transformPerspective:1000})
-							// Meet Team
-							.set(meetTname, {rotationX:-65, opacity:0, transformOrigin:"center center",transformPerspective:1000})
-							.set(meetTtitle, {rotationX:65, opacity:0, transformOrigin:"center center",transformPerspective:1000})
-							.set(meetTimage, {opacity:0})
-							.set(moreLink, {scale:0})
 							// Rebel
 							.set(rebelTop, {height:0})
 							.set(rebelSlide, {overflow:"hidden"})
@@ -128,6 +107,7 @@
 					.staggerFrom($(".heroTrigger").find(chars1), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 					.to($(".heroTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "introIn+=.2")
 					.to(clock, .8, {scale:1, opacity:1, rotation:0, ease:globalEaseElastic}, "introIn-=.1")
+					.to(heroWheel, 1, {scale:1, opacity:1,ease:globalEaseElastic}, "introIn+=.4")
 
 			whatWeDoTL.to($(".whatWeDoTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 								.staggerFrom($(".whatWeDoTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
@@ -146,8 +126,8 @@
 			affiliationTL.to($(".affiliationTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 									.staggerFrom($(".affiliationTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 									.to($(".affiliationTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
-									.to(circWhite, .5, {drawSVG:"100% 0%", strokeWidth:1, rotation:360, transformOrigin: "50% 50%", ease:globalEase}, "runIt")
-									.to(circTeal, .6, {drawSVG:"100% 0%", strokeWidth:2, rotation:360, transformOrigin: "50% 50%", ease:globalEase}, "runIt+=.01")
+									.to(circWhite, .5, {drawSVG:"100% 0%", strokeWidth:1, rotation:360, transformOrigin: "50% 50%", ease:globalEaseIn}, "runIt")
+									.to(circTeal, .6, {drawSVG:"100% 0%", strokeWidth:2, rotation:360, transformOrigin: "50% 50%", ease:globalEaseIn}, "runIt+=.01")
 									.to(circTeal, .5, {fill:"#FFFFFF"}, "comeIn")
 									.to(circTeal, .5, {stroke:"white"}, "comeIn")
 									.to(".affilLogo", .3, {opacity:1}, "comeIn")
@@ -158,24 +138,6 @@
 								.staggerFrom($(".advisorTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 								.to($(".advisorTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
 								.to(advisorCarousel, .3, {opacity:1, y:0}, "-=.5")
-
-
-			meetDavidTL.to(meetTop, .3, {height:95},"introIn")
-									.to($(".meetDavidTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
-									.staggerFrom($(".meetDavidTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
-									.to($(".meetDavidTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "introIn3")
-									.to(meetDname, .5, {rotationY:0, transformOrigin:"left center",ease:Back.easeOut.config(1)},"introIn3")
-									.to(meetDtitle, .5, {rotationY:0, transformOrigin:"right center",ease:Back.easeOut.config(1)},"introIn3")
-									.to(meetDimage, .5, {rotationY:0, scale:1, transformOrigin:"center center",ease:Back.easeOut.config(1)},"introIn3+=.15")
-					
-			meetTeamTL.to($(".meetTeamTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
-								.staggerFrom($(".meetTeamTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
-								.staggerTo(meetCircle, .5, {drawSVG:"25% 50%", ease:globalEaseBack}, 1.5, "introIn3")
-								.staggerTo(meetTimage, .5, {opacity:1}, 1.5, "introIn3+=.5")
-								.staggerTo(meetTname, .4, {rotationX:0, opacity:1, transformOrigin:"center center",ease:globalEaseBack}, 1.5, "introIn3+=.65")
-								.staggerTo(meetTtitle, .4, {rotationX:0, opacity:1, transformOrigin:"center center",ease:globalEaseBack}, 1.5, "introIn3+=.65")
-								.staggerTo($(".meetTeamTrigger p"), .4, {opacity:1, y:0, ease:Back.easeOut}, 1.5, "introIn3+=.65")
-								.staggerTo(moreLink, .3, {scale:1}, 1.5, "introIn3+=.7")
 
 			rebelTL.to(rebelTop, .3, {height:95},"introIn")
 						.staggerFrom($(".rebelTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
@@ -239,20 +201,6 @@
 				offset: 400
 			}).setTween(advisorTL)
 
-			var meetDavidScene = new ScrollMagic.Scene({
-				triggerElement: ".meetDavidTrigger",
-				triggerHook: "onEnter",
-				reverse: false,
-				offset: 400
-			}).setTween(meetDavidTL)
-
-			var meetTeamScene = new ScrollMagic.Scene({
-				triggerElement: ".meetTeamTrigger",
-				triggerHook: "onEnter",
-				reverse: false,
-				offset: 400
-			}).setTween(meetTeamTL)
-
 			var rebelScene = new ScrollMagic.Scene({
 				triggerElement: ".rebelTrigger",
 				triggerHook: "onEnter",
@@ -277,7 +225,7 @@
 			// WAIT UNTIL PAGE LOADS AND PRELOADER IS GONE TO ADD ALL ANIMATIONS
 			$(window).load(function(){
 				// ADD THE SCENES ABOVE TO THE SCROLLMAGIC CONTROLLER
-				controller.addScene([heroScene, whatWeDoScene, clientScene, affiliationScene, advisorScene, meetDavidScene, meetTeamScene, rebelScene, testimonialsScene, footerScene]);
+				controller.addScene([heroScene, whatWeDoScene, clientScene, affiliationScene, advisorScene, rebelScene, testimonialsScene, footerScene]);
 			});
 		}	
 				

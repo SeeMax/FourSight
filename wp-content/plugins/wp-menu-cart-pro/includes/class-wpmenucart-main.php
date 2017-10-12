@@ -10,7 +10,9 @@ class WPO_Menu_Cart_Pro_Main {
 		// add filters to selected menus to add cart item <li>
 		// add_action( 'init', array( $this, 'filter_nav_menus' ) );
 		$this->filter_nav_menus();
-		add_shortcode( 'wpmenucart', array( $this, 'shortcode' ) );
+		if ( $this->should_render_menucart() === true ) {
+			add_shortcode( 'wpmenucart', array( $this, 'shortcode' ) );
+		}
 
 		// Enable shortcodes in text widgets
 		if (!has_filter('widget_text','do_shortcode')) {
@@ -37,6 +39,12 @@ class WPO_Menu_Cart_Pro_Main {
 		if ( !isset( WPO_Menu_Cart_Pro()->main_settings['menu_slugs'] ) || empty( WPO_Menu_Cart_Pro()->main_settings['menu_slugs'] ) ) {
 			return;
 		}
+
+		// check if we should add
+		if ( $this->should_render_menucart() === false ) {
+			return;
+		}
+	
 
 		//grab menu slugs
 		$menu_slugs = apply_filters( 'wpmenucart_menu_slugs', WPO_Menu_Cart_Pro()->main_settings['menu_slugs'] );
@@ -65,6 +73,21 @@ class WPO_Menu_Cart_Pro_Main {
 
 		return $nav_menu_items;
 	}
+	
+	/**
+	 * Determine whether menu cart should be added/rendered
+	 * Used to prevent fatal errors in certain editor contexts
+	 * 
+	 * @return bool whether to render shortcode or not
+	 */
+	public function should_render_menucart() {
+		// Elementor compatibility
+		if ( is_admin() && (isset($_GET['action']) && $_GET['action'] == 'elementor') ) {
+			return false;
+		}
+
+		return true;
+	}
 
 	/**
 	 * Create HTML for shortcode
@@ -72,6 +95,7 @@ class WPO_Menu_Cart_Pro_Main {
 	 * @return string      'menucart' html
 	 */
 	public function shortcode($atts) {
+
 		extract(shortcode_atts( array('style' => '', 'flyout' => 'hover', 'before' => '', 'after' => '') , $atts));
 
 		$item_data = WPO_Menu_Cart_Pro()->shop->menu_item();

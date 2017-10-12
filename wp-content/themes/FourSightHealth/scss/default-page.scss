@@ -1,0 +1,37 @@
+@import "colors";
+
+.standard-page {
+	
+	main {
+		
+		.content {
+			padding:60px 10% 60px 10%;
+			text-align: left;	
+		}
+	}
+
+	h1 {
+		color:$green;
+	}
+
+	h2, h3 {
+		color:$blue;
+		text-align: left;
+		margin-top:30px;
+	}
+
+
+	ol, ul, p {
+		padding-left:0;
+		padding-right:0;
+	}
+
+	ol, ul {
+		margin-left:30px;
+		margin-bottom:10px;
+	}
+
+	ul {
+		list-style: disc;
+	}
+}

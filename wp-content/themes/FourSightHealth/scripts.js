@@ -68,6 +68,7 @@
 	
 	$(function () {
 
+			
 		$('.clientCarousel').imagesLoaded(function () {
     	
 		  $('.clientCarousel').slick({
@@ -80,7 +81,15 @@
 			  autoplaySpeed: 3000, 
 			  pauseOnHover:true,
 			  cssEase: 'linear',
-			  appendDots:$('.clientDots')
+			  appendDots:$('.clientDots'),
+			  responsive: [
+		    {
+		      breakpoint: 1023, //at 600px wide, only 2 slides will show
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		    ]
 			})
 		});
 
@@ -98,9 +107,15 @@
 			  speed:2000,
 			  pauseOnHover:false,
 			  cssEase: 'linear',
-			  // dots: true, 
-			  // appendDots:$('.advisorDots'),
-			  initialSlide: 1
+			  initialSlide: 1,
+			  responsive: [
+			  {
+		      breakpoint: 1023, //at 600px wide, only 2 slides will show
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		    ]
 			})
 		});
 
@@ -110,20 +125,26 @@
 		  $('.aboutTestimonialCarousel').slick({
 		    slidesToShow: 2,
 			  slidesToScroll: 1,
-			  autoplay: true,
+			  autoplay: false,
 			  infinite: true,
 			  dots: true, 
 			  arrows: false, 
 			  autoplaySpeed: 3000, 
 			  pauseOnHover:true,
 			  cssEase: 'linear',
-			  appendDots:$('.testimonialDots')
+			  appendDots:$('.testimonialDots'),
+			  responsive: [
+		    {
+		      breakpoint: 1023, //at 600px wide, only 2 slides will show
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		    ]
 			})
 		});
 
-
 	});
-
 })(jQuery, this);
 
 
@@ -145,14 +166,13 @@
 					clientTL = new TimelineMax()
 					affiliationTL = new TimelineMax()
 					advisorTL = new TimelineMax()
-					meetDavidTL = new TimelineMax()
-					meetTeamTL = new TimelineMax()
 					rebelTL = new TimelineMax()
 					testimonialsTL = new TimelineMax()
 					footerTL = new TimelineMax()
 
 			var //Hero
 					clock = $(".clock-svg")
+					heroWheel = $(".heroWheel")
 					// what We Do
 					singleWe = $(".single-thing-we-do")
 					singleWeTitle = $(".thing-title")
@@ -168,17 +188,6 @@
 					advisorCarousel = $(".advisorCarousel")
 					affilTitle = $(".affil-title")
 					affilPosition = $(".affil-position")
-					// Meet David
-					meetTop = $(".meetTop")
-					meetDimage = $(".meetDavidTrigger .meet-image")
-					meetDname = $(".meetDavidTrigger .meet-name")
-					meetDtitle = $(".meetDavidTrigger .meet-title")
-					// Meet Team
-					meetTimage = $(".meetTeamTrigger .meet-image")
-					meetTname = $(".meetTeamTrigger .meet-name")
-					meetTtitle = $(".meetTeamTrigger .meet-title")
-					meetCircle = $(".meetCircle")
-					moreLink = $(".more-link")
 					//Rebel
 					rebelTop = $(".rebelTop")
 					rebelSlide = $(".rebelSlide")
@@ -212,6 +221,7 @@
 							.set(".button", {opacity:0, scale:.75})
 							// Hero
 							.set(clock, {scale:0, opacity:0, rotation:720})
+							.set(heroWheel, {scale:.5, opacity:0})
 							// Clients
 							.set(clientTop, {height:0})
 							.set(clientCarousel, {opacity:0})
@@ -228,16 +238,6 @@
 							.set(affilPosition, {opacity:0, y:-7})
 							// Advisory
 							.set(advisorCarousel, {opacity:0})
-							// Meet David
-							.set(meetTop, {height:0})
-							.set(meetDname, {rotationY:90, transformOrigin:"left center",transformPerspective:1000})
-							.set(meetDtitle, {rotationY:-90, transformOrigin:"right center",transformPerspective:1000})
-							.set(meetDimage, {rotationY:90, scale:.8, transformOrigin:"center center",transformPerspective:1000})
-							// Meet Team
-							.set(meetTname, {rotationX:-65, opacity:0, transformOrigin:"center center",transformPerspective:1000})
-							.set(meetTtitle, {rotationX:65, opacity:0, transformOrigin:"center center",transformPerspective:1000})
-							.set(meetTimage, {opacity:0})
-							.set(moreLink, {scale:0})
 							// Rebel
 							.set(rebelTop, {height:0})
 							.set(rebelSlide, {overflow:"hidden"})
@@ -258,6 +258,7 @@
 					.staggerFrom($(".heroTrigger").find(chars1), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 					.to($(".heroTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "introIn+=.2")
 					.to(clock, .8, {scale:1, opacity:1, rotation:0, ease:globalEaseElastic}, "introIn-=.1")
+					.to(heroWheel, 1, {scale:1, opacity:1,ease:globalEaseElastic}, "introIn+=.4")
 
 			whatWeDoTL.to($(".whatWeDoTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 								.staggerFrom($(".whatWeDoTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
@@ -276,8 +277,8 @@
 			affiliationTL.to($(".affiliationTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 									.staggerFrom($(".affiliationTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 									.to($(".affiliationTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
-									.to(circWhite, .5, {drawSVG:"100% 0%", strokeWidth:1, rotation:360, transformOrigin: "50% 50%", ease:globalEase}, "runIt")
-									.to(circTeal, .6, {drawSVG:"100% 0%", strokeWidth:2, rotation:360, transformOrigin: "50% 50%", ease:globalEase}, "runIt+=.01")
+									.to(circWhite, .5, {drawSVG:"100% 0%", strokeWidth:1, rotation:360, transformOrigin: "50% 50%", ease:globalEaseIn}, "runIt")
+									.to(circTeal, .6, {drawSVG:"100% 0%", strokeWidth:2, rotation:360, transformOrigin: "50% 50%", ease:globalEaseIn}, "runIt+=.01")
 									.to(circTeal, .5, {fill:"#FFFFFF"}, "comeIn")
 									.to(circTeal, .5, {stroke:"white"}, "comeIn")
 									.to(".affilLogo", .3, {opacity:1}, "comeIn")
@@ -288,24 +289,6 @@
 								.staggerFrom($(".advisorTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 								.to($(".advisorTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
 								.to(advisorCarousel, .3, {opacity:1, y:0}, "-=.5")
-
-
-			meetDavidTL.to(meetTop, .3, {height:95},"introIn")
-									.to($(".meetDavidTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
-									.staggerFrom($(".meetDavidTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
-									.to($(".meetDavidTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "introIn3")
-									.to(meetDname, .5, {rotationY:0, transformOrigin:"left center",ease:Back.easeOut.config(1)},"introIn3")
-									.to(meetDtitle, .5, {rotationY:0, transformOrigin:"right center",ease:Back.easeOut.config(1)},"introIn3")
-									.to(meetDimage, .5, {rotationY:0, scale:1, transformOrigin:"center center",ease:Back.easeOut.config(1)},"introIn3+=.15")
-					
-			meetTeamTL.to($(".meetTeamTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
-								.staggerFrom($(".meetTeamTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
-								.staggerTo(meetCircle, .5, {drawSVG:"25% 50%", ease:globalEaseBack}, 1.5, "introIn3")
-								.staggerTo(meetTimage, .5, {opacity:1}, 1.5, "introIn3+=.5")
-								.staggerTo(meetTname, .4, {rotationX:0, opacity:1, transformOrigin:"center center",ease:globalEaseBack}, 1.5, "introIn3+=.65")
-								.staggerTo(meetTtitle, .4, {rotationX:0, opacity:1, transformOrigin:"center center",ease:globalEaseBack}, 1.5, "introIn3+=.65")
-								.staggerTo($(".meetTeamTrigger p"), .4, {opacity:1, y:0, ease:Back.easeOut}, 1.5, "introIn3+=.65")
-								.staggerTo(moreLink, .3, {scale:1}, 1.5, "introIn3+=.7")
 
 			rebelTL.to(rebelTop, .3, {height:95},"introIn")
 						.staggerFrom($(".rebelTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
@@ -369,20 +352,6 @@
 				offset: 400
 			}).setTween(advisorTL)
 
-			var meetDavidScene = new ScrollMagic.Scene({
-				triggerElement: ".meetDavidTrigger",
-				triggerHook: "onEnter",
-				reverse: false,
-				offset: 400
-			}).setTween(meetDavidTL)
-
-			var meetTeamScene = new ScrollMagic.Scene({
-				triggerElement: ".meetTeamTrigger",
-				triggerHook: "onEnter",
-				reverse: false,
-				offset: 400
-			}).setTween(meetTeamTL)
-
 			var rebelScene = new ScrollMagic.Scene({
 				triggerElement: ".rebelTrigger",
 				triggerHook: "onEnter",
@@ -407,7 +376,7 @@
 			// WAIT UNTIL PAGE LOADS AND PRELOADER IS GONE TO ADD ALL ANIMATIONS
 			$(window).load(function(){
 				// ADD THE SCENES ABOVE TO THE SCROLLMAGIC CONTROLLER
-				controller.addScene([heroScene, whatWeDoScene, clientScene, affiliationScene, advisorScene, meetDavidScene, meetTeamScene, rebelScene, testimonialsScene, footerScene]);
+				controller.addScene([heroScene, whatWeDoScene, clientScene, affiliationScene, advisorScene, rebelScene, testimonialsScene, footerScene]);
 			});
 		}	
 				
@@ -537,9 +506,16 @@
 		    	chars2 = mySplitText2.chars;
 
 	  	var hireTL = new TimelineMax({delay:.5})
+	  			engagementTL = new TimelineMax({delay:.5})
 					footerTL = new TimelineMax()
 
-			var hireTop = $(".hireTop")
+			var // Hire Area
+					hireTop = $(".hireTop")
+					// Engagement 
+					engagementTop = $(".engagementTop")
+					engEvent = $(".single-engagement")
+					engDate = $(".engagement-date")
+					engLocation = $(".engagement-location")
 					// Footer Variable
 		      footerTop = $(".footer-links-top")
 		      footerH2 = $(".footer h2")
@@ -564,6 +540,11 @@
 							.set(".button", {opacity:0, scale:.75})
 							// Hire
 							.set(hireTop, {height:0})
+							// Engagement
+							.set(engagementTop, {height:0})
+							.set(engEvent, {x:-20, opacity:0})
+							.set(engDate, {color:"white"})
+							.set(engLocation, {y:20, opacity:0})
 							// Footer
 							.set(footerTop, {height:0})
 				      .set(footerH4, {opacity:0})
@@ -573,10 +554,16 @@
 
 			hireTL.to($(".hireTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 					.staggerFrom($(".hireTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
-					.to(hireTop, .3, {height:95},"introIn")
 					.to($(".hireTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "introIn+=.2")
 					.to($(".hireTrigger .button"), .4, {opacity:1, scale:1, ease:Back.easeOut}, "-=.5")
-					.to(hireTop, .3, {height:95}, "introIn")
+
+			engagementTL.to($(".engagementTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
+					.staggerFrom($(".engagementTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
+					.to($(".engagementTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "introIn+=.2")
+					.to(engagementTop, .3, {height:95}, "introIn")
+					.staggerTo(engEvent, .3, {x:0, opacity:1, ease:globalEaseBack}, .1, "introIn2")
+					.staggerTo(engDate, .3, {color:"#333E48", ease:globalEaseBack}, .1, "introIn2+=.3")
+					.staggerTo(engLocation, .3, {y:0, opacity:1, ease:globalEaseBack}, .1, "introIn2+=.3")
 
 			footerTL.to(footerTop, .3, {height:95})
 							.to($(".footer p"), .3, {opacity:1, y:0}, "footersIn")
@@ -598,6 +585,13 @@
 				offset: 400
 			}).setTween(hireTL)
 
+			var engagementScene = new ScrollMagic.Scene({
+				triggerElement: ".engagementTrigger",
+				triggerHook: "onEnter",
+				reverse: false,
+				offset: 400
+			}).setTween(engagementTL)
+
 			var footerScene = new ScrollMagic.Scene({
 				triggerElement: ".footerTrigger",
 				triggerHook: "onEnter",
@@ -608,7 +602,7 @@
 			// WAIT UNTIL PAGE LOADS AND PRELOADER IS GONE TO ADD ALL ANIMATIONS
 			$(window).load(function(){
 				// ADD THE SCENES ABOVE TO THE SCROLLMAGIC CONTROLLER
-				controller.addScene([hireScene, footerScene]);
+				controller.addScene([hireScene, engagementScene, footerScene]);
 			});
 		}	
 				
@@ -631,7 +625,15 @@
 			  autoplaySpeed: 3000, 
 			  pauseOnHover:true,
 			  cssEase: 'linear',
-			  appendDots:$('.testimonialDots')
+			  appendDots:$('.testimonialDots'),
+			  responsive: [
+			  {
+		      breakpoint: 1023, //at 600px wide, only 2 slides will show
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		    ]
 			})
 		});
 
@@ -648,10 +650,11 @@
 
     $(".button").on({
 	    mouseenter: function () {
-	    	console.log("roll")
-
+	
 	    	if ($(this).hasClass("blue-button")) {
 	    		tl.to($(this), .3, {background:"rgba(168, 198, 67, 1)", border:'2px solid rgba(168, 198, 67, 1)',ease:globalEase})
+	    	} else if ($(this).hasClass("article-button")) {
+	    		tl.to($(this), .3, {background:"white", color:"rgba(168, 198, 67, 1)", border:"1px solid rgba(168, 198, 67, 1)", ease:globalEase})
 	    	} else {
 	    		tl.to($(this), .3, {background:"rgba(168, 198, 67, 1)", color:"white", border:"2px solid rgba(168, 198, 67, 1)", ease:globalEase})
 	    	}
@@ -661,7 +664,10 @@
 
 	    	if ($(this).hasClass("blue-button")) {
 	      	tl.to($(this), .25, {background:"rgba(168, 198, 67, 0)", color:"rgba(81, 137, 147, 1);", border:'2px solid rgba(168, 198, 67, 1)',ease:globalEase})
-	      } else {
+	      } else if ($(this).hasClass("article-button")) {
+	      	console.log("yep")
+	    		tl.to($(this), .3, {background:"rgba(168, 198, 67, 1)", color:"white", border:"1px solid rgba(168, 198, 67, 1)", ease:globalEase})
+	    	} else {
 	      	tl.to($(this), .25, {background:"rgba(168, 198, 67, 0)", color:"rgba(168, 198, 67, 1)", border:'2px solid rgba(168, 198, 67, 1)',ease:globalEase})
 	      }
 
@@ -671,23 +677,6 @@
 	});
 
 })(jQuery, this);
-
-//USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
-(function ($, root, undefined) {
-  
- $(function () {
-
-      
-
-        
-    
-
-    
- });
-
-})(jQuery, this);
-
-
 
 (function ($, root, undefined) {
     
@@ -703,6 +692,7 @@
 		    	chars = mySplitText.chars;
 
 					var missionTL = new TimelineMax()
+							missionTLIcons = new TimelineMax()
 							versusTL = new TimelineMax()
 							blogTL = new TimelineMax()
 							testimonialsTL = new TimelineMax()
@@ -777,36 +767,32 @@
 						      .set(socialIcons, {opacity:0, x:-30})
 						      .set([bookImg, bookPage], {rotationY:-90, transformOrigin:"left center", transformPerspective:1800})
 
-							
 					missionTL.to($(".missionTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 									.staggerFrom($(".missionTrigger").find(chars), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 									.to($(".missionTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
-									// ICON 1 ANIMATIONS
-									.to(chartBorder, .000001, {opacity:1})
-						      .to(thinBorder1, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
-						      .to(thickBorder1, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
-						      .to(chartBorder, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
-						      .to(chartLine, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
-						      .to(chartArrow, .000001, {opacity:1},"border1+=.09")
-						      .to(chartArrow, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1+=.09")
-						      .to(title1, uniTime1+.4, {opacity:1, y:0, ease:uniEase1}, "border1-=.4")
-						      .to(thinBorder2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
-						      .to(thickBorder2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
-						      .to(plusSign2, .000001, {opacity:1}, "border2-=1")
-		      				.to(plusSign2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
-		      				.to(person2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
-						      .to(title2, uniTime1, {opacity:1, y:0, ease:uniEase1}, "border2-=1")
-						      .to(thinBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
-						      .to(thickBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
-						      .to(bookBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
-						      .to(lines3, .000001, {opacity:1}, "border3-=.4")
-		      				.to(plus3, .000001, {opacity:1}, "border3-=.11")
-		      				.to(lines3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
-		      				.to(plus3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.1")
-						      
-						      .to(title3, uniTime1, {opacity:1, y:0, ease:uniEase1}, "border3-=.4")
-
-
+									
+					missionTLIcons.to(chartBorder, .000001, {opacity:1})
+									      .to(thinBorder1, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
+									      .to(thickBorder1, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
+									      .to(chartBorder, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
+									      .to(chartLine, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1-=.4")
+									      .to(chartArrow, .000001, {opacity:1},"border1+=.09")
+									      .to(chartArrow, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border1+=.09")
+									      .to(title1, uniTime1+.4, {opacity:1, y:0, ease:uniEase1}, "border1-=.4")
+									      .to(thinBorder2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
+									      .to(thickBorder2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
+									      .to(plusSign2, .000001, {opacity:1}, "border2-=1")
+					      				.to(plusSign2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
+					      				.to(person2, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border2-=1")
+									      .to(title2, uniTime1, {opacity:1, y:0, ease:uniEase1}, "border2-=1")
+									      .to(thinBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
+									      .to(thickBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
+									      .to(bookBorder3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
+									      .to(lines3, .000001, {opacity:1}, "border3-=.4")
+					      				.to(plus3, .000001, {opacity:1}, "border3-=.11")
+					      				.to(lines3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.4")
+					      				.to(plus3, uniTime1, {drawSVG:"0% 100%", ease:uniEase1}, "border3-=.1")									      
+									      .to(title3, uniTime1, {opacity:1, y:0, ease:uniEase1}, "border3-=.4")
 
 					versusTL.to(vsTop, .4, {height:95}, "introIn")
 									.to($(".versusTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
@@ -816,7 +802,6 @@
 									.staggerTo(bookPage, .3, {rotationY:0, transformOrigin:"left center",ease:Back.easeOut.config(1)}, ".01", "+=.6")
 									.to(bookImg, .8, {rotationY:0, transformOrigin:"left center",ease:Back.easeOut.config(1)}, "-=.3")
 	 
-							
 					blogTL.to($(".blogTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
 									.staggerFrom($(".blogTrigger").find(chars), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
 									.to($(".blogTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
@@ -829,7 +814,6 @@
 												.to($(".testimonialCarousel"), .3, {opacity:1})
 												.to($(".testimonialsTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "-=.2")
 
-
 					footerTL.to(footerTop, .3, {height:95})
 									.to($(".footer p"), .3, {opacity:1, y:0}, "footersIn")
 									.to(footerH4, .3, {opacity:1}, "footersIn")
@@ -837,19 +821,24 @@
 									.to(footerSignup, .3, {opacity:1, y:0}, "footersIn")
 									.to(footerSignupBtn, .3, {opacity:1, scale:1}, "footersIn")
 									.staggerTo(socialIcons, .1, {opacity:1, x:0}, .05, "footersIn")
-									
-									
-				
-					
+
+
 					var controller = new ScrollMagic.Controller();	
 					// Build Scene
 
 					var missionScene = new ScrollMagic.Scene({
 						triggerElement: ".missionTrigger",
-						triggerHook: "onEnter",
+						triggerHook: 'onEnter',
+						reverse: false,
+						offset: 0
+					}).setTween(missionTL)
+
+					var missionIconsScene = new ScrollMagic.Scene({
+						triggerElement: ".missionIconsTrigger",
+						triggerHook: 'onEnter',
 						reverse: false,
 						offset: 400
-					}).setTween(missionTL)
+					}).setTween(missionTLIcons)
 
 					var versusScene = new ScrollMagic.Scene({
 						triggerElement: ".versusTrigger",
@@ -880,12 +869,62 @@
 					}).setTween(footerTL)
 
 					// ADD THE SCENES ABOVE TO THE SCROLLMAGIC CONTROLLER
-					controller.addScene([missionScene, versusScene, blogScene, testimonialsScene, footerScene]);
+					controller.addScene([missionScene, missionIconsScene, versusScene, blogScene, testimonialsScene, footerScene]);
 				}	
 			});
     });
 })(jQuery, this);
 
+//USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
+(function ($, root, undefined) {
+	
+	$(function () {
+
+		$(".menuToggle").on('click', function() {
+
+			var tl = new TimelineMax()
+					$this = $(this),
+					fullMenu = $(".nav"),
+					links = $(".nav li"),
+					ham1 = $(".hamTop"),
+					ham2 = $(".hamMid"),
+					ham3 = $(".hamBot"),
+					uniTime2 = .15;
+
+			if ($this.hasClass("navOpen")) {
+				$this.removeClass("navOpen");
+				tl.set($(".wrapper"), {height:"auto",overflow:"visible"})
+					.to(fullMenu, .3, {left:"101%"}, "menuClose")
+					.staggerTo(links, .3, {opacity:0, x:"50%"}, .03, "menuClose")
+					.to(ham1, uniTime2, {width:"100%", rotation:0, y:0}, "menuClose")
+					.to(ham2, uniTime2, {width:"100%", x:0, opacity:1}, "menuClose")
+					.to(ham3, uniTime2, {width:"100%", rotation:0, y:0}, "menuClose")
+					
+
+			} else {
+				$this.addClass("navOpen");
+				tl.set($(".wrapper"), {height:"100%", overflow:"hidden"})
+					.set(links, {opacity:0, x:"50%"})
+					.to(fullMenu, .3, {left:"0%"}, "menuOpen")
+					.staggerTo(links, .1, {opacity:1, x:"0%"}, .03, "menuOpen")
+					.to(ham1, uniTime2, {rotation:227, y:4, width:"50%"}, "menuOpen")
+					.to(ham2, uniTime2, {width:"70%", x:5, opacity:0}, "menuOpen")
+					.to(ham3, uniTime2, {rotation:-227, y:-4, width:"50%"}, "menuOpen")
+					
+			}
+		});
+
+	});
+
+})(jQuery, this);
+(function ($, root, undefined) {$(function () {
+
+
+$("p:contains('4sight Health')").html(function(_, html) {
+   return html.replace(/(4sight Health)/g, '<span style="white-space:nowrap;">$1</span>');
+});
+
+});})(jQuery, this);
 (function ($, root, undefined) {
   $(function () {
 
@@ -894,105 +933,130 @@
 		});
   });
 })(jQuery, this);
+//USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
-  jQuery(function () {
+	
+	$(function () {
+		if ($("main").hasClass("team-page") && screen.width >= 1025){
 
-      // ONLY IF ITS THE HOME PAGE
-      if($('main').is('.home-page') && jQuery('iframe').length > 0){
+			var setupTL = new TimelineMax();
+		    	// mySplitText1 = new SplitText("h1", {type:"words,chars"}),
+		    	mySplitText2 = new SplitText("h2", {type:"words,chars"}), 
+		    	// chars1 = mySplitText1.chars;
+		    	chars2 = mySplitText2.chars;
 
-        jQuery("iframe")[0].src += "?&controls=0&&showinfo=0&rel=0&enablejsapi=1&html5=1";
-        jQuery("iframe").attr('id', 'video');
-      }
+	  	var meetDavidTL = new TimelineMax()
+					meetTeamTL = new TimelineMax()
+					footerTL = new TimelineMax()
 
-   });
+			var // Meet David
+					meetTop = $(".meetTop")
+					meetDimage = $(".meetDavidTrigger .meet-image")
+					meetDname = $(".meetDavidTrigger .meet-name")
+					meetDtitle = $(".meetDavidTrigger .meet-title")
+					// Meet Team
+					meetTimage = $(".meetTeamTrigger .meet-image")
+					meetTname = $(".meetTeamTrigger .meet-name")
+					meetTtitle = $(".meetTeamTrigger .meet-title")
+					meetCircle = $(".meetCircle")
+					moreLink = $(".more-link")
+					// Footer Variable
+		      footerTop = $(".footer-links-top")
+		      footerH2 = $(".footer h2")
+		      footerH4 = $(".footer h4")
+		      footerSignup = $("#mc_embed_signup")
+		      footerSignupBtn = $("#mc_embed_signup .button")
+		      socialIcons = $(".social-icons i")
+		      // Universal Variables
+		      uniTime1 = 1
+		      uniTime2 = .3
+		      uniEase1 = Power4.easeOut
+		      uniEase2 = Power4.easeIn
+		      globalEaseIn = Circ.easeIn
+		      globalEaseOut = Circ.easeOut
+		      globalEaseBack =  Back.easeIn.config(1.7)
+		      globalEaseElastic = Elastic.easeOut.config(1, 1)
+	
+			setupTL.set("hr", {width:"100%", height:4})
+							.set("h1", {perspective:400})
+							.set("h2", {perspective:400})
+							.set("p", {opacity:0, y:-10})
+							.set(".button", {opacity:0, scale:.75})
+							// Meet David
+							.set(meetTop, {height:0})
+							.set(meetDname, {rotationY:90, transformOrigin:"left center",transformPerspective:1000})
+							.set(meetDtitle, {rotationY:-90, transformOrigin:"right center",transformPerspective:1000})
+							.set(meetDimage, {rotationY:90, scale:.8, transformOrigin:"center center",transformPerspective:1000})
+							// Meet Team
+							.set(meetTname, {rotationX:-65, opacity:0, transformOrigin:"center center",transformPerspective:1000})
+							.set(meetTtitle, {rotationX:65, opacity:0, transformOrigin:"center center",transformPerspective:1000})
+							.set(meetTimage, {opacity:0})
+							.set(moreLink, {scale:0})
+							// Footer
+							.set(footerTop, {height:0})
+				      .set(footerH4, {opacity:0})
+				      .set(footerH2, {opacity:0, x:-10})
+				      .set(footerSignup, {opacity:0, y:-10})
+				      .set(socialIcons, {opacity:0, x:-30})
+
+
+			meetDavidTL.to(meetTop, .3, {height:95},"introIn")
+									.to($(".meetDavidTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
+									.staggerFrom($(".meetDavidTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
+									.to($(".meetDavidTrigger p"), .6, {opacity:1, y:0, ease:Back.easeOut}, "introIn3")
+									.to(meetDname, .5, {rotationY:0, transformOrigin:"left center",ease:Back.easeOut.config(1)},"introIn3")
+									.to(meetDtitle, .5, {rotationY:0, transformOrigin:"right center",ease:Back.easeOut.config(1)},"introIn3")
+									.to(meetDimage, .5, {rotationY:0, scale:1, transformOrigin:"center center",ease:Back.easeOut.config(1)},"introIn3+=.15")
+					
+			meetTeamTL.to($(".meetTeamTrigger hr"), 0.4, {width:50, height:2, ease: Linear.easeNone}, "introIn")
+								.staggerFrom($(".meetTeamTrigger").find(chars2), 0.4, {opacity:0, scale:0, y:60, rotationY:20, transformOrigin:"0% 50% -50", ease:Back.easeOut}, 0.01, "introIn+=.2")
+								.staggerTo(meetCircle, .5, {drawSVG:"25% 50%", ease:globalEaseBack}, 1.5, "introIn3")
+								.staggerTo(meetTimage, .5, {opacity:1}, 1.5, "introIn3+=.5")
+								.staggerTo(meetTname, .4, {rotationX:0, opacity:1, transformOrigin:"center center",ease:globalEaseBack}, 1.5, "introIn3+=.65")
+								.staggerTo(meetTtitle, .4, {rotationX:0, opacity:1, transformOrigin:"center center",ease:globalEaseBack}, 1.5, "introIn3+=.65")
+								.staggerTo($(".meetTeamTrigger p"), .4, {opacity:1, y:0, ease:Back.easeOut}, 1.5, "introIn3+=.65")
+								.staggerTo(moreLink, .3, {scale:1}, 1.5, "introIn3+=.7")
+
+			footerTL.to(footerTop, .3, {height:95})
+							.to($(".footer p"), .3, {opacity:1, y:0}, "footersIn")
+							.to(footerH4, .3, {opacity:1}, "footersIn")
+							.to(footerH2, .3, {opacity:1, x:0}, "footersIn")
+							.to(footerSignup, .3, {opacity:1, y:0}, "footersIn")
+							.to(footerSignupBtn, .3, {opacity:1, scale:1}, "footersIn")
+							.staggerTo(socialIcons, .1, {opacity:1, x:0}, .05, "footersIn")
+
+			
+				
+			var controller = new ScrollMagic.Controller();	
+			// Build Scene
+
+			var meetDavidScene = new ScrollMagic.Scene({
+				triggerElement: ".meetDavidTrigger",
+				triggerHook: "onEnter",
+				reverse: false,
+				offset: 400
+			}).setTween(meetDavidTL)
+
+			var meetTeamScene = new ScrollMagic.Scene({
+				triggerElement: ".meetTeamTrigger",
+				triggerHook: "onEnter",
+				reverse: false,
+				offset: 400
+			}).setTween(meetTeamTL)
+
+			var footerScene = new ScrollMagic.Scene({
+				triggerElement: ".footerTrigger",
+				triggerHook: "onEnter",
+				reverse: false,
+				offset: 400
+			}).setTween(footerTL)
+
+			// WAIT UNTIL PAGE LOADS AND PRELOADER IS GONE TO ADD ALL ANIMATIONS
+			$(window).load(function(){
+				// ADD THE SCENES ABOVE TO THE SCROLLMAGIC CONTROLLER
+				controller.addScene([meetDavidScene, meetTeamScene, footerScene]);
+			});
+		}	
+				
+	});
 })(jQuery, this);
-
-// Called Asynch-ly
-// https://developers.google.com/youtube/iframe_api_reference
-
-// global variable for the player
-var player;
-
-// this function gets called when API is ready to use
-function onYouTubePlayerAPIReady() {
-  // create the global player from the specific iframe (#video)
-  player = new YT.Player('video', {
-    events: {
-      // call this function when player is ready to use
-      'onReady': onPlayerReady
-    }
-  });
-}
-
-
-
-  function onPlayerReady(event) {
-  
-  if (screen.width >= 1025) {  
-    // bind events
-    var playButton = jQuery(".playVideo");
-        vidPreview = jQuery(".vidPreview")
-        video = jQuery(".vid-frame iframe")
-        vBack = jQuery(".vidCircle")
-        closeBtn = jQuery(".closeVideo")
-        pauseBtn = jQuery(".vidBackground");
-        bod = jQuery("body")
-
-    playButton.on("click", function() {
-      var tl = new TimelineMax();
-
-      tl.set(pauseBtn, {zIndex:1})
-        // .set(bod, {height:"100%", overflow:"hidden"})
-        .to(vBack, .7, {width:"110%", height:"110%"}, "play")
-        .to( jQuery(this), .13, {rotationY:90}, "play")
-        .to(closeBtn, .3, {scale:1}, "play")
-        .to( vidPreview, .5, {opacity:0}, "play+=.15")
-      // PLAY THE VIDEO
-      player.playVideo();
-    });
-
-    closeBtn.on("click", function() {
-      var tl = new TimelineMax();
-
-      tl// .set(bod, {height:"auto",overflow:"visible"})
-        .to(vBack, .5, {width:"0%", height:"0%", onComplete: backGoBack}, "stop")
-        .to( jQuery('.playVideo'), .13, {rotationY:0}, "stop")
-        .to(closeBtn, .2, {scale:0}, "stop")
-        .to( vidPreview, .5, {opacity:1}, "stop+=.15")
-      // STOP THE VIDEO
-      player.stopVideo();
-    });
-
-    pauseBtn.on("click", function() {
-      var tl = new TimelineMax();
-
-      tl.to( jQuery('.playVideo'), .13, {rotationY:0})
-      // PAUSE THE VIDEO
-      player.pauseVideo();
-    });
-
-    function backGoBack() {
-      var tl = new TimelineMax();
-      tl.set(pauseBtn, {zIndex:0})
-    }
-
-
-    
-  }//End > 1024px
-  else {
-
-    jQuery(".playVideo").on("click", function() {
-      player.playVideo();
-    });
-  }
-} 
-
-
-// Inject YouTube API script
-var tag = document.createElement('script');
-tag.src = "//www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
-
-
