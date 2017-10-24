@@ -328,6 +328,60 @@ function html5blankgravatar ($avatar_defaults)
     return $avatar_defaults;
 }
 
+// Add to existing function.php file
+// Disable support for comments and trackbacks in post types
+function df_disable_comments_post_types_support() {
+    $post_types = get_post_types();
+    foreach ($post_types as $post_type) {
+        if(post_type_supports($post_type, 'comments')) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    }
+}
+add_action('admin_init', 'df_disable_comments_post_types_support');
+// Close comments on the front-end
+function df_disable_comments_status() {
+    return false;
+}
+add_filter('comments_open', 'df_disable_comments_status', 20, 2);
+add_filter('pings_open', 'df_disable_comments_status', 20, 2);
+// Hide existing comments
+function df_disable_comments_hide_existing_comments($comments) {
+    $comments = array();
+    return $comments;
+}
+add_filter('comments_array', 'df_disable_comments_hide_existing_comments', 10, 2);
+// Remove comments page in menu
+function df_disable_comments_admin_menu() {
+    remove_menu_page('edit-comments.php');
+
+
+}
+add_action('admin_menu', 'df_disable_comments_admin_menu');
+// Redirect any user trying to access comments page
+function df_disable_comments_admin_menu_redirect() {
+    global $pagenow;
+    if ($pagenow === 'edit-comments.php') {
+        wp_redirect(admin_url()); exit;
+    }
+}
+add_action('admin_init', 'df_disable_comments_admin_menu_redirect');
+// Remove comments metabox from dashboard
+function df_disable_comments_dashboard() {
+    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+}
+add_action('admin_init', 'df_disable_comments_dashboard');
+// Remove comments links from admin bar
+function df_disable_comments_admin_bar() {
+    if (is_admin_bar_showing()) {
+        remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+    }
+}
+add_action('init', 'df_disable_comments_admin_bar');
+
+
+
 // Threaded Comments
 function enable_threaded_comments()
 {
@@ -382,6 +436,11 @@ function html5blankcomments($comment, $args, $depth)
 	<?php endif; ?>
 <?php }
 
+
+
+
+
+
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -397,8 +456,6 @@ add_action('init', 'create_post_type_bio');
 add_action('init', 'create_post_type_client');
 add_action('init', 'create_post_type_affiliations');
 add_action('init', 'create_post_type_advisors');
-add_action('init', 'create_post_type_article');
-add_action('init', 'create_post_type_podcast');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -544,45 +601,6 @@ function create_post_type_advisors()
     );
 }
 
-function create_post_type_article()
-{
-  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
-  register_taxonomy_for_object_type('post_tag', 'theme_template');
-    register_post_type( 'article',
-        array(
-            'labels' => array(
-                'name' => ('Articles'),
-                'singular_name' => ('Article')
-            ),
-        'public' => true,
-        'has_archive' => true,
-        'rewrite' => array('slug' => 'Article'),
-        'supports' => array('title','editor'),
-        'menu_icon'   => 'dashicons-media-default'
-        )
-    );
-}
-
-function create_post_type_podcast()
-{
-  register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
-  register_taxonomy_for_object_type('post_tag', 'theme_template');
-    register_post_type( 'podcast',
-        array(
-            'labels' => array(
-                'name' => ('Podcasts'),
-                'singular_name' => ('Podcast')
-            ),
-        'public' => true,
-        'has_archive' => true,
-        'rewrite' => array('slug' => 'Podcast'),
-        'supports' => array('title','editor'),
-        'menu_icon'   => 'dashicons-controls-volumeon'
-        )
-    );
-}
-
-
 // CREATE A GLOBAL OPTIONS PAGE
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
@@ -711,5 +729,23 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 {
     return '<h2>' . $content . '</h2>';
 }
+
+function remove_menus(){
+  
+  remove_menu_page( 'index.php' );                  //Dashboard
+  remove_menu_page( 'jetpack' );                    //Jetpack* 
+  remove_menu_page( 'edit-comments.php' );          //Comments
+  remove_menu_page( 'themes.php' );                 //Appearance
+  // remove_menu_page( 'plugins.php' );                //Plugins
+  // remove_menu_page( 'users.php' );                  //Users
+  remove_menu_page( 'tools.php' );                  //Tools
+  // remove_menu_page( 'options-general.php' );        //Settings
+  remove_menu_page( 'ajax-load-more' );             //Ajax Load More Plugin
+}
+add_action( 'admin_menu', 'remove_menus', 9999);
+// Hide ACF
+add_filter('acf/settings/show_admin', '__return_false');
+
+
 
 ?>

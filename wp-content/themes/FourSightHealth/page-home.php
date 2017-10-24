@@ -99,7 +99,7 @@
 				<div class="hr-container"><hr></div>
 				<?php the_field('blog_section_body'); ?>
 				<div class="button blue-button">
-					<a href="/articles"></a>
+					<a href="/newsroom"></a>
 					See All
 				</div>
 				<div class="blog-grid">

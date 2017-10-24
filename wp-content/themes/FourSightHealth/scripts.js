@@ -881,6 +881,7 @@
 	$(function () {
 
 		$(".menuToggle").on('click', function() {
+			console.log("click")
 
 			var tl = new TimelineMax()
 					$this = $(this),

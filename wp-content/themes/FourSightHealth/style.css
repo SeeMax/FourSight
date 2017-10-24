@@ -2328,7 +2328,8 @@ hr {
       width: 100%; }
   .home-page .single-blog-preview {
     width: 100%;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    padding-top: 35px; }
   .home-page .testimonials-section h2 {
     margin-bottom: 20px; }
   .home-page .testimonials-section p {
@@ -2503,6 +2504,7 @@ hr {
     text-align: left;
     width: 90%; }
   .single-article-page .single-article-comment {
+    display: none;
     margin: 30px 0;
     text-align: left;
     width: 100%;
@@ -2546,6 +2548,27 @@ hr {
       display: none; }
   .single-article-page p:empty {
     display: none; }
+
+/* use a sprite file with darker transport icons */
+.mejs-container .mejs-controls {
+  top: 20px !important; }
+
+/* use a sprite file with darker transport icons */
+.mejs-container, .mejs-container .mejs-controls {
+  background: #333E48 !important;
+  height: 50px !important; }
+
+/* change the color of the progress bar */
+.mejs-controls .mejs-time-rail .mejs-time-total {
+  background: #ccc !important; }
+
+/* change the color of the current time bar */
+.mejs-controls .mejs-time-rail .mejs-time-current {
+  background: #A8C643 !important; }
+
+/* change the color of the file loading bar */
+.mejs-controls .mejs-time-rail .mejs-time-loaded {
+  background: white !important; }
 
 .single-product-page .content {
   padding-top: 10px;
