@@ -137,16 +137,16 @@
 			</div>
 		</section>
 
-		<section class="rebel-section rebelTrigger">
+		<!-- <section class="rebel-section rebelTrigger">
 			<div class="rebel-top rebelTop">
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1660 97.0999756" preserveAspectRatio="none">
 					<polygon class="section-topper-polygon" points="1660,0 1660,97.0999756 825.5479736,27.0999756 0,97.0999756 0,0 "/>
 				</svg>				
 			</div>	
 			<div class="content">
-				<h2><?php the_field('rebel_with_a_cause_header'); ?></h2>
+				<h2><?php the_field('rebel_with_a_cause_header'); ?></h2> -->
 				<!-- <div class="hr-container"><hr></div> -->
-				<?php if( have_rows('rebel_with_a_cause_slides') ): while( have_rows('rebel_with_a_cause_slides') ) : the_row();?>
+<!-- 				<?php if( have_rows('rebel_with_a_cause_slides') ): while( have_rows('rebel_with_a_cause_slides') ) : the_row();?>
 					<div class="single-rebel-slide rebelSlide">
 						<div class="slide-content slideContent">
 							<?php the_sub_field('slide_content'); ?>
@@ -160,7 +160,7 @@
 					</div>
 				<?php endwhile; endif;?>
 			</div>
-		</section>
+		</section> -->
 
 		<section class="testimonials-section testimonialsTrigger">	
 			<div class="content">

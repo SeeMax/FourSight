@@ -68,6 +68,6 @@ if ( ! defined( 'ABSPATH' ) ) {exit;} get_header( 'shop' ); ?>
 			</div>
 		</section>
 	</main>
-<?php get_footer( 'shop' ); ?>
+<?php get_footer(); ?>
 
 

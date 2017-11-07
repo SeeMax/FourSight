@@ -15,12 +15,27 @@
 					</div>
 				</div>
 				<div class="article-line"></div>
-				<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				<?php endif; ?>
 				<div class="single-article-content">
+					<div class="pdf-link">
+						<?php if ( get_field('pdf_link')) :?>
+							<a href="<?php the_field('pdf_link');?>" target="_blank">
+								<i class="fa fa-download" aria-hidden="true"></i> 
+								Download as PDF
+							</a>
+						<?php endif; ?>
+						
+					</div>
+					<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
+						<?php the_post_thumbnail(); // Fullsize image for the single post ?>
+					<?php endif; ?>
 					<?php the_content();?>
 				</div>
+				<?php if( has_category( $category = 'podcast') ): ?>
+   				<div class="button podcast-button">
+						<a href='https://itunes.apple.com/us/podcast/4sighthealth-market-corner-conversations/id1302461771?mt=2' target="_blank"></a>
+						View on iTunes
+					</div>
+				<?php endif; ?>
 				<div class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></div>
 				<div class="single-article-tags">
 					<?php the_tags( __( 'Tags: ', 'html5blank' ), ' / ', '<br>'); // Separated by commas with a line break at the end ?>

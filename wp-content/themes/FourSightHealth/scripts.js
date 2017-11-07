@@ -926,6 +926,14 @@ $("p:contains('4sight Health')").html(function(_, html) {
 });
 
 });})(jQuery, this);
+// //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
+// (function ($, root, undefined) {	
+// 	$(function () {
+
+// 		$("a[title='Download PDF']").parent().addClass('pdf-button');
+		
+// });})(jQuery, this);
+
 (function ($, root, undefined) {
   $(function () {
 

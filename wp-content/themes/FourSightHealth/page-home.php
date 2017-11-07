@@ -108,9 +108,16 @@
 						while ( $loop->have_posts() ) : $loop->the_post(); ?>
 				  	<div class="single-blog-preview">
 				  		<div class="post-date">
-				  			<?php the_date('M j, Y'); ?>
+				  			<?php echo get_the_date('M j, Y'); ?>
 				  		</div>
-							<?php the_post_thumbnail('large', ['class' => 'post-image', 'title' => 'Feature image']); ?>
+				  		<?php if ( get_the_post_thumbnail($post_id) != '' ) {
+								the_post_thumbnail('large', ['class' => 'post-image', 'title' => 'Feature image']);
+							} else {
+								echo '<img src="';
+								echo catch_that_image();
+								echo '" alt="" />';
+							}	;?>
+									
 							<h4>
 								<?php the_title();?>
 							</h4>

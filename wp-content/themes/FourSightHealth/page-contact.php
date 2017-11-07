@@ -9,9 +9,6 @@
 				</svg>				
 			</div>
 			<div class="content">
-			<!-- 	<h2><?php the_title(); ?></h2>
-				<div class="hr-container"><hr></div> -->
-				<!-- <?php echo do_shortcode('[contact-form-7 id="2080" title="Main Contact Form"]'); ?> -->
 				<div class="contact-tile-group">
 
 					<?php if( have_rows('contact_tile') ): while( have_rows('contact_tile') ) : the_row();?>

@@ -69,8 +69,8 @@
 							&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>
 						</div>
 						<div class="admin-links">
-							<a href="">Terms of Service</a><span class="seperator"> | </span>
-							<a href="">Privacy Policy</a>
+							<a href="/terms-of-service">Terms of Service</a><span class="seperator"> | </span>
+							<a href="/privacy-policy">Privacy Policy</a>
 						</div>
 					</div>
 				</div>

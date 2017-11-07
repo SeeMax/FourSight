@@ -4,7 +4,7 @@
 		<?php the_title();?>
 	</h4>
 	<div class="article-author">
-		<?php the_date(); ?>
+		By <?php the_author();?> on <?php echo get_the_date(); ?>
 	</div>
 	<div class="article-preview-image">
 		<?php if ( get_the_post_thumbnail($post_id) != '' ) {
@@ -22,8 +22,12 @@
 			<?php the_excerpt();?>
 		</div>
 		<div class="button">
+			<?php if( has_category( $category = 'podcast') ) {
+				echo "Listen";
+			} else {
+				echo "Read More";
+			}	;?>
 			<a href="<?php the_permalink();?>"></a>
-			Read More	
 		</div>
 	</div>
 	

@@ -3,6 +3,12 @@
 		<section class="archive-hero articlesTrigger">
 			<div class="content">						
 				<h2><?php _e( 'Archives', 'html5blank' ); ?></h2>
+				<?php if( has_category( $category = 'podcast') ): ?>
+   				<div class="button podcast-button">
+						<a href='https://itunes.apple.com/us/podcast/4sighthealth-market-corner-conversations/id1302461771?mt=2' class=""></a>
+						View on iTunes
+					</div>
+				<?php endif; ?>
 			</div>
 		</section>
 		<section class="archive-section archiveTrigger">

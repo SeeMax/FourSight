@@ -27,7 +27,7 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
+    add_image_size('large', 1024, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
@@ -736,15 +736,15 @@ function remove_menus(){
   remove_menu_page( 'jetpack' );                    //Jetpack* 
   remove_menu_page( 'edit-comments.php' );          //Comments
   remove_menu_page( 'themes.php' );                 //Appearance
-  // remove_menu_page( 'plugins.php' );                //Plugins
+  remove_menu_page( 'plugins.php' );                //Plugins
   // remove_menu_page( 'users.php' );                  //Users
   remove_menu_page( 'tools.php' );                  //Tools
-  // remove_menu_page( 'options-general.php' );        //Settings
+  remove_menu_page( 'options-general.php' );        //Settings
   remove_menu_page( 'ajax-load-more' );             //Ajax Load More Plugin
 }
 add_action( 'admin_menu', 'remove_menus', 9999);
 // Hide ACF
-add_filter('acf/settings/show_admin', '__return_false');
+// add_filter('acf/settings/show_admin', '__return_false');
 
 
 

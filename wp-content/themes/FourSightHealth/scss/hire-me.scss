@@ -38,6 +38,11 @@
 			/*padding-bottom:50px;*/
 		}
 
+		.hire-tile {
+			width:50%;
+			padding:0 3%;
+		}
+
 		h2 {
 
 		}
@@ -95,10 +100,10 @@
 	}
 
 	.single-engagement {
-		width:32%;
+		width:100%;
 		height:auto;
 		text-align: left;
-		margin-bottom:10px;
+		margin-bottom:20px;
 		border:1px solid white; 
 	}
 
@@ -114,7 +119,7 @@
 		font-size:20px;
 		font-weight: 700;
 		line-height: 1;
-		padding:22px 14px 30px 14px;
+		padding:26px 14px;
 	}
 }
 
@@ -164,6 +169,11 @@
 			.content {
 				padding-top: 50px;
 				padding-bottom: 70px;
+			}
+
+			.hire-tile {
+				width:100%;
+				padding:20px 3%;
 			}
 		}
 

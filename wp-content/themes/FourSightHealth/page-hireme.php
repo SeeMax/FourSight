@@ -10,12 +10,23 @@
 
 		<section class="hire-cta-section hireTrigger">	
 			<div class="content">
-				<h2><?php the_field('title'); ?></h2>
-				<div class="hr-container"><hr></div>
-				<p><?php the_field('content'); ?></p>
-				<div class="button">
-					<a href=mailto:"<?php the_field('link'); ?>?subject=<?php the_field('subject'); ?>"></a>
-					<?php the_field('button_text'); ?>
+				<div class="hire-tile">
+					<h2><?php the_field('title'); ?></h2>
+					<div class="hr-container"><hr></div>
+					<p><?php the_field('content'); ?></p>
+					<div class="button">
+						<a href="mailto:<?php the_field('link'); ?>?subject=<?php the_field('subject'); ?>"></a>
+						<?php the_field('button_text'); ?>
+					</div>
+				</div>
+				<div class="hire-tile">
+					<h2><?php the_field('title_consult'); ?></h2>
+					<div class="hr-container"><hr></div>
+					<p><?php the_field('content_consult'); ?></p>
+					<div class="button">
+						<a href="mailto:<?php the_field('link_consult'); ?>?subject=<?php the_field('subject_consult'); ?>"></a>
+						<?php the_field('button_text_consult'); ?>
+					</div>
 				</div>
 			</div>
 		</section>
