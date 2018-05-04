@@ -1,24 +1,13 @@
 <?php get_header(); ?>
-
-	<main role="main">
-		<!-- section -->
-		<section>
-
-			<!-- article -->
-			<article id="post-404">
-
-				<h1><?php _e( 'Page not found', 'html5blank' ); ?></h1>
-				<h2>
-					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
-				</h2>
-
-			</article>
-			<!-- /article -->
-
-		</section>
-		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
-
+<main class="four-oh-four-page" role="main">
+	<section>
+		<div class="content">
+			<h1>Oops...sorry about the gremlins.</h1>
+			<div class="hr-container"><hr></div>
+			<h2>
+				Please check the <a href="/insights">blog page</a> for links to all our content.
+			</h2>
+		</div>
+	</section>
+</main>
 <?php get_footer(); ?>

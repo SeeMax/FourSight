@@ -23,7 +23,7 @@
 	    	if ($(this).hasClass("blue-button")) {
 	      	tl.to($(this), .25, {background:"rgba(168, 198, 67, 0)", color:"rgba(81, 137, 147, 1);", border:'2px solid rgba(168, 198, 67, 1)',ease:globalEase})
 	      } else if ($(this).hasClass("article-button")) {
-	      	console.log("yep")
+	      	// console.log("yep")
 	    		tl.to($(this), .3, {background:"rgba(168, 198, 67, 1)", color:"white", border:"1px solid rgba(168, 198, 67, 1)", ease:globalEase})
 	    	} else {
 	      	tl.to($(this), .25, {background:"rgba(168, 198, 67, 0)", color:"rgba(168, 198, 67, 1)", border:'2px solid rgba(168, 198, 67, 1)',ease:globalEase})

@@ -19,7 +19,7 @@
 }
 
 .footer-social {
-	
+
 	.content {
 		justify-content: space-between;
 	}
@@ -132,7 +132,7 @@
 		}
 	}
 
-	
+
 }
 
 .footer-links {
@@ -143,7 +143,7 @@
 
 	.content {
 		padding-top:20px;
-		padding-bottom:20px;
+		padding-bottom:30px;
 		justify-content: space-between;
 	}
 
@@ -183,6 +183,22 @@
 	}
 }
 
+
+.legal-required-copy {
+	background:black;
+	color:white;
+	font-size:12px;
+
+	a {
+		color:$green;
+	}
+
+	.content {
+		padding-top:24px;
+		padding-bottom:22px;
+		display: block;
+	}
+}
 
 
 

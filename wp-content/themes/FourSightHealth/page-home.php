@@ -59,7 +59,7 @@
 				<div class="hr-container"><hr></div>
 				<?php the_field('versus_body'); ?>
 				<div class="button">
-					<a href=""></a>
+					<a href="<?php the_field('versus_button_link'); ?>"></a>
 					<?php the_field('versus_button_text'); ?>
 				</div>
 			</div>
@@ -99,7 +99,7 @@
 				<div class="hr-container"><hr></div>
 				<?php the_field('blog_section_body'); ?>
 				<div class="button blue-button">
-					<a href="/newsroom"></a>
+					<a href="/insights"></a>
 					See All
 				</div>
 				<div class="blog-grid">
@@ -110,14 +110,16 @@
 				  		<div class="post-date">
 				  			<?php echo get_the_date('M j, Y'); ?>
 				  		</div>
-				  		<?php if ( get_the_post_thumbnail($post_id) != '' ) {
-								the_post_thumbnail('large', ['class' => 'post-image', 'title' => 'Feature image']);
-							} else {
+				  		<?php $thumb = get_the_post_thumbnail(get_the_ID());?>
+							<?php if (!empty($thumb)) {
+								
+									echo the_post_thumbnail('large', ['class' => 'post-image', 'title' => 'Feature image']);
+								
+							} else if ( has_post_thumbnail ) {
 								echo '<img src="';
 								echo catch_that_image();
-								echo '" alt="" />';
-							}	;?>
-									
+								echo '" alt="Four Sight Health" />';
+							}	;?>									
 							<h4>
 								<?php the_title();?>
 							</h4>

@@ -13,14 +13,14 @@
 						linker = $(this).parent().find('.more-link')
 						origHeight = words.height();
 
-				console.log(origHeight)
+				// console.log(origHeight)
 
 				// Store Original Height as a data attribute
 				linker.data("origHeight", origHeight)
 				linker.data("closedHeight", closedHeight)
 
   			if (words.height() > $(this).height()) {
-  				console.log("ok")
+  				// console.log("ok")
   				tl.set(words,{height:$(this).height()})
   			} else {
   				tl.set(linker, {opacity:0})
@@ -63,6 +63,7 @@
 		});
 	});
 })(jQuery, this);
+
 //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
 	
@@ -146,8 +147,6 @@
 
 	});
 })(jQuery, this);
-
-
 
 //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
@@ -382,6 +381,7 @@
 				
 	});
 })(jQuery, this);
+
 //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
 	
@@ -470,6 +470,7 @@
 				
 	});
 })(jQuery, this);
+
 //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
 	
@@ -495,6 +496,7 @@
 	});
 
 })(jQuery, this);
+
 //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
 	
@@ -582,7 +584,7 @@
 				triggerElement: ".hireTrigger",
 				triggerHook: "onEnter",
 				reverse: false,
-				offset: 400
+				offset: 100
 			}).setTween(hireTL)
 
 			var engagementScene = new ScrollMagic.Scene({
@@ -608,6 +610,7 @@
 				
 	});
 })(jQuery, this);
+
 //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
 	
@@ -640,6 +643,7 @@
 	});
 
 })(jQuery, this);
+
 //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
 	
@@ -665,7 +669,7 @@
 	    	if ($(this).hasClass("blue-button")) {
 	      	tl.to($(this), .25, {background:"rgba(168, 198, 67, 0)", color:"rgba(81, 137, 147, 1);", border:'2px solid rgba(168, 198, 67, 1)',ease:globalEase})
 	      } else if ($(this).hasClass("article-button")) {
-	      	console.log("yep")
+	      	// console.log("yep")
 	    		tl.to($(this), .3, {background:"rgba(168, 198, 67, 1)", color:"white", border:"1px solid rgba(168, 198, 67, 1)", ease:globalEase})
 	    	} else {
 	      	tl.to($(this), .25, {background:"rgba(168, 198, 67, 0)", color:"rgba(168, 198, 67, 1)", border:'2px solid rgba(168, 198, 67, 1)',ease:globalEase})
@@ -881,7 +885,7 @@
 	$(function () {
 
 		$(".menuToggle").on('click', function() {
-			console.log("click")
+			// console.log("click")
 
 			var tl = new TimelineMax()
 					$this = $(this),
@@ -918,6 +922,7 @@
 	});
 
 })(jQuery, this);
+
 (function ($, root, undefined) {$(function () {
 
 
@@ -926,13 +931,6 @@ $("p:contains('4sight Health')").html(function(_, html) {
 });
 
 });})(jQuery, this);
-// //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
-// (function ($, root, undefined) {	
-// 	$(function () {
-
-// 		$("a[title='Download PDF']").parent().addClass('pdf-button');
-		
-// });})(jQuery, this);
 
 (function ($, root, undefined) {
   $(function () {
@@ -942,6 +940,7 @@ $("p:contains('4sight Health')").html(function(_, html) {
 		});
   });
 })(jQuery, this);
+
 //USE THE BELOW AS TEMPLATE FOR FUNCTION FILES
 (function ($, root, undefined) {
 	

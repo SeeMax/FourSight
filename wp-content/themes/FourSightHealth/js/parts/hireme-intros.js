@@ -85,7 +85,7 @@
 				triggerElement: ".hireTrigger",
 				triggerHook: "onEnter",
 				reverse: false,
-				offset: 400
+				offset: 100
 			}).setTween(hireTL)
 
 			var engagementScene = new ScrollMagic.Scene({

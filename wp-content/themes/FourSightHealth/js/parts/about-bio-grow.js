@@ -13,14 +13,14 @@
 						linker = $(this).parent().find('.more-link')
 						origHeight = words.height();
 
-				console.log(origHeight)
+				// console.log(origHeight)
 
 				// Store Original Height as a data attribute
 				linker.data("origHeight", origHeight)
 				linker.data("closedHeight", closedHeight)
 
   			if (words.height() > $(this).height()) {
-  				console.log("ok")
+  				// console.log("ok")
   				tl.set(words,{height:$(this).height()})
   			} else {
   				tl.set(linker, {opacity:0})

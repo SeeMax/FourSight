@@ -1,7 +1,7 @@
 <div class="single-article-preview">
 <div class="article-line"></div>
 	<h4>
-		<?php the_title();?>
+		<a href="<?php the_permalink();?>"><?php the_title();?></a>
 	</h4>
 	<div class="article-author">
 		By <?php the_author();?> on <?php echo get_the_date(); ?>

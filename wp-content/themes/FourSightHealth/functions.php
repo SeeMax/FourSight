@@ -1,8 +1,7 @@
 <?php
 /*
- *  Author: Todd Motto | @toddmotto
- *  URL: html5blank.com | @html5blank
- *  Custom functions, support, custom post types and more.
+ *  Author: SeeMaxWork | max@seemaxwork.com
+ *  URL: www.seemax.work
  */
 
 /*------------------------------------*\
@@ -56,6 +55,11 @@ if (function_exists('add_theme_support'))
 
     // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
+}
+
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
 }
 
 /*------------------------------------*\
@@ -147,6 +151,9 @@ function theme_styles()
 {
     wp_register_style('normalize', get_template_directory_uri() . '/css/normalize.min.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
+
+    // GOOGLE FONTS
+    wp_enqueue_style( 'wpb-google-fonts', "https://fonts.googleapis.com/css?family=Open+Sans:300,400,700", false );
 
     // FONTS CSS
     wp_register_style('theme_fonts', get_template_directory_uri() . '/fonts/fonts.css', array(), '1.0', 'all');
@@ -456,6 +463,7 @@ add_action('init', 'create_post_type_bio');
 add_action('init', 'create_post_type_client');
 add_action('init', 'create_post_type_affiliations');
 add_action('init', 'create_post_type_advisors');
+add_action('init', 'create_post_type_news');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -601,6 +609,24 @@ function create_post_type_advisors()
     );
 }
 
+// function create_post_type_news()
+// {
+//   register_taxonomy_for_object_type('category', 'theme_template'); // Register Taxonomies for Category
+//   register_taxonomy_for_object_type('post_tag', 'theme_template');
+//     register_post_type( 'news',
+//         array(
+//             'labels' => array(
+//                 'name' => ('News Articles'),
+//                 'singular_name' => ('News Article')
+//             ),
+//         'public' => true,
+//         'rewrite' => array('slug' => 'News'),
+//         'supports' => array('title','editor'),
+//         'menu_icon'   => 'dashicons-megaphone'
+//         )
+//     );
+// }
+
 // CREATE A GLOBAL OPTIONS PAGE
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
@@ -731,21 +757,43 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 }
 
 function remove_menus(){
+
+  if ( is_user_logged_in() ) {
+    $current_user = wp_get_current_user();
+    if (!in_array($current_user->ID, array(1))) {
   
-  remove_menu_page( 'index.php' );                  //Dashboard
-  remove_menu_page( 'jetpack' );                    //Jetpack* 
-  remove_menu_page( 'edit-comments.php' );          //Comments
-  remove_menu_page( 'themes.php' );                 //Appearance
-  remove_menu_page( 'plugins.php' );                //Plugins
-  // remove_menu_page( 'users.php' );                  //Users
-  remove_menu_page( 'tools.php' );                  //Tools
-  remove_menu_page( 'options-general.php' );        //Settings
-  remove_menu_page( 'ajax-load-more' );             //Ajax Load More Plugin
+      remove_menu_page( 'index.php' );                  //Dashboard
+      remove_menu_page( 'jetpack' );                    //Jetpack* 
+      remove_menu_page( 'edit-comments.php' );          //Comments
+      remove_menu_page( 'themes.php' );                 //Appearance
+      remove_menu_page( 'plugins.php' );                //Plugins
+      // remove_menu_page( 'users.php' );                  //Users
+      remove_menu_page( 'tools.php' );                  //Tools
+      remove_menu_page( 'options-general.php' );        //Settings
+      remove_menu_page( 'ajax-load-more' );             //Ajax Load More Plugin
+    }
+  }
 }
 add_action( 'admin_menu', 'remove_menus', 9999);
 // Hide ACF
 // add_filter('acf/settings/show_admin', '__return_false');
 
 
+//Exclude pages from WordPress Search
+if (!is_admin()) {
+function wpb_search_filter($query) {
+if ($query->is_search) {
+$query->set('post_type', 'post');
+}
+return $query;
+}
+add_filter('pre_get_posts','wpb_search_filter');
+}
 
+function no_nopaging($query) {
+    if ($query->is_search) {
+        $query->set('nopaging', 1);
+    }
+}
+add_action('parse_query', 'no_nopaging');
 ?>

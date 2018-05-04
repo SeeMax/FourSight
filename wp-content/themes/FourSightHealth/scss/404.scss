@@ -1,0 +1,30 @@
+@import "colors";
+
+.four-oh-four-page {
+  background:black;
+
+  section {
+    background: black;
+  }
+
+  h1 {
+    width:70%;
+    color:$lightGray;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    color:$lightGray;
+    text-transform: none;
+    width:50%;
+    font-weight: 400;
+  }
+
+  .hr-container {
+      margin:0 0 40px 0;
+  }
+
+  a {
+    color:$brandGreen;
+  }
+}
