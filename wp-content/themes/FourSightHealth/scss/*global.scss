@@ -6,9 +6,14 @@ html, body {
 }
 
 body {
-	font:400 16px/1.5 'Avenear', sans-serif;
-	color:black;
+	font:400 16px/1.625 'Open Sans', sans-serif;
+	color:$black;
 	position: relative;
+}
+
+img {
+	width:100%;
+	height:auto;
 }
 
 .wrapper {
@@ -40,13 +45,11 @@ section {
 	position: relative;
 	display:flex;
 	flex-wrap:wrap;
-	justify-content:center;
 	width:100%;
 	height:100%;
-	max-width: 1150px;
+	max-width: 1120px;
 	margin:0px auto;
-	text-align: center;
-	padding:100px 25px 150px 25px;
+	padding:70px 25px 70px 25px;
 	overflow:hidden;
 }
 
@@ -55,22 +58,18 @@ a {
 	color:white;
 }
 
-h1, h2, h3, h4 {
-	font:800 80px/1.2 "Avenear",sans-serif;
+h1, h2, h3, h4,h5,h6 {
+	font:800 80px/1.2 "Avenir",sans-serif;
 	margin:0;
-	text-align:center;
 	width:100%;
 }
 
 h1 {
-	font:800 80px/1.2 "Avenear",sans-serif;	
+	font:800 50px/1.2 "Avenir",sans-serif;
 }
 
 h2 {
-	font-size:40px;
-	font-weight: 800;
-	text-transform: uppercase;
-	color:$blue;
+	font-size:34px;
 }
 
 h3 {
@@ -80,22 +79,58 @@ h3 {
 h4 {
 	font-size:18px;
 	font-weight: 500;
-	color:$blue;
-	margin:20px 0;
+}
+
+h5 {
+	font-size:18px;
+	font-weight: 100;
+	color:$teal;
+}
+
+h6 {
+	font-size:14px;
+	font-weight: 400;
 }
 
 p {
 	width:100%;
-	padding:0 10%;
-	margin:0 auto;
-	margin-bottom:.7em;
 }
 
 ul {
 	position: relative;
 
 	li {
-		
+		position: relative;
+		margin-left:14px;
+
+		&:before {
+			content:'–';
+			color:$green;
+			position: absolute;
+			left:-14px;
+			top:0px;
+		}
+	}
+}
+
+ol {
+	list-style: none;
+	counter-reset: li;
+	padding-left:0px;
+
+	li {
+		counter-increment: li;
+
+		&:before {
+			content: counter(li);
+			color: $green;
+			display: inline-block;
+			text-align: right;
+			direction: rtl;
+			width:1em;
+			margin-left: -8px;
+    	margin-right: 6px;
+		}
 	}
 }
 
@@ -115,60 +150,99 @@ hr {
   padding:0;
 }
 
-.parallax-section {
-	position: relative;
-	height: 500px;
-	overflow: hidden;
-	width:100%;
-  background: transparent;
-
-  .parallax-image {
-		position: absolute;
-		top:0;
-		left:0;
-		width:100%;
-		height: 750px;
-		background: no-repeat center center;
-    background-size: cover;
-	}
-
-
-  .content {
-  	height:100%;
-  	align-content:center;
-  	padding-bottom:100px;
-  }
-}
-
-
 .button, .woocommerce a.button, .woocommerce .cart input.button {
+	font-family: 'Avenir', sans-serif;
 	cursor:pointer;
 	position: relative;
-	padding:12px 34px 8px 34px;
-	margin-top:35px;
+	text-align: center;
+	padding:14px 34px 10px 20px;
+	margin-top:20px;
 	width:auto;
-	min-width:250px;
-	border: 2px solid $green;
-	font-weight:800;
-	font-size:16px;
-	text-transform: uppercase;
+	font-weight:500;
+	font-size:14px;
 	line-height: 1;
-	border-radius:30px;
-	color:$green;
-	background:rgba(168, 198, 67, .0);
-	
+	text-transform: uppercase;
+	color:white;
+	background:$teal;
+	box-shadow: 0px 3px 4px -2px rgba(0,0,0,0.5);
+	transition:all .25s ease-out;
+
 	a {
 		display: block;
 		width: 100%;
 		height:100%;
 		position: absolute;
 		top:0;
-		left:0;	
+		left:0;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		top:14px;
+		right:14px;
+		width:10px;
+		height:10px;
+		background-image: url('./img/button-arrow-white.svg');
+		transition:all .25s ease;
+	}
+
+	&:hover {
+		box-shadow: 0px 1px 1px -1px rgba(0,0,0,0.75);
+
+		&:after {
+			transform: translateX(-2px);
+		}
 	}
 }
 
-.blue-button {
+.white-button {
+	background: white;
 	color:$teal;
+
+	&:after {
+		background-image: url('./img/button-arrow-teal.svg');
+	}
+}
+
+.text-button {
+	background: white;
+	color:$teal;
+	box-shadow: 0px 3px 4px -2px rgba(0,0,0,0);
+
+	&:after {
+		background-image: url('./img/button-arrow-teal.svg');
+
+	}
+
+	&:hover {
+		box-shadow: 0px 1px 1px -1px rgba(0,0,0,0);
+	}
+}
+
+.custom-sidebar {
+	border-top:1px solid $lightGreen;
+
+	.twitter-timeline {
+		margin-top:6px !important;
+	}
+}
+
+.fullbar {
+	padding-left:25px;
+
+	.fullbar-content {
+		border-top:1px solid $lightGreen;
+		padding:40px 0px;
+	}
+
+	h5 {
+		margin-bottom:5px;
+	}
+}
+
+.drop-shadow {
+	box-shadow: 0px 2px 4px -2px rgba(0,0,0,0.5);
 }
 
 
@@ -182,22 +256,12 @@ hr {
 // 767px And Below
 @media screen and (max-width: 767px){
 
-	.content {
-		padding-top:60px;
-		padding-bottom:40px;
+	.custom-sidebar {
+		order:2;
 	}
 
-	h1, h2 {
-		font-size:35px;
-	}
-
-	.parallax-section {
-
-		height: 400px;
-
-	  .parallax-image {
-			width:100%;
-			height: 100%;
-		}
+	.fullbar {
+		padding-left:0;
+		order:1;
 	}
 }

@@ -17,7 +17,7 @@
 	}
 
 	hr {
-		background:$blue;
+		background:$darkTeal;
 	}
 
 	.shop-hero {
@@ -77,7 +77,7 @@
 				font-size:24px;
 				font-weight: 400;
 				text-transform: none;
-				color:$blue;
+				color:$darkTeal;
 				text-align: left;
 			}
 
@@ -95,7 +95,7 @@
 				width:100%;
 				margin:0 auto;
 				font-size:16px;
-				color:$blue;
+				color:$darkTeal;
 				font-weight: 700;
 				text-align: left;
 
@@ -106,7 +106,7 @@
 		}
 
 		.button-area {
-			background: $blue;
+			background: $darkTeal;
 
 			.woocommerce-LoopProduct-link {
 			display: flex;

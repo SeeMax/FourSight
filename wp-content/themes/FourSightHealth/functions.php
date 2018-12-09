@@ -643,6 +643,16 @@ if (function_exists('acf_add_options_page')) {
                 'icon_url' => 'dashicons-media-spreadsheet',
         'position' => 6
     ));
+
+    acf_add_options_page(array(
+        'page_title'    => 'Pre Header',
+        'menu_title'    => 'Pre Header',
+        'menu_slug'    => 'pre_header',
+        'capability'    => 'edit_posts',
+        'redirect'    => false,
+                'icon_url' => 'dashicons-editor-aligncenter',
+        'position' => 3
+    ));
 }
 
 
@@ -783,6 +793,7 @@ add_action( 'admin_menu', 'remove_menus', 9999);
 // Hide ACF
 // add_filter('acf/settings/show_admin', '__return_false');
 
+add_filter('use_block_editor_for_post', '__return_false');
 
 //Exclude pages from WordPress Search
 if (!is_admin()) {

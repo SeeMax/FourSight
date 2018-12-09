@@ -16,9 +16,33 @@ class WC_REST_Connect_Services_Controller extends WC_REST_Connect_Base_Controlle
 	 */
 	protected $service_schemas_store;
 
-	public function __construct( WC_Connect_API_Client $api_client, WC_Connect_Service_Settings_Store $settings_store, WC_Connect_Logger $logger, WC_Connect_Service_Schemas_Store $schemas_store ) {
+	public function __construct(
+		WC_Connect_API_Client $api_client,
+		WC_Connect_Service_Settings_Store $settings_store,
+		WC_Connect_Logger $logger,
+		WC_Connect_Service_Schemas_Store $schemas_store
+	) {
 		parent::__construct( $api_client, $settings_store, $logger );
 		$this->service_schemas_store  = $schemas_store;
+	}
+
+	public function get( $request ) {
+		$method_id = $request[ 'id' ];
+		$instance_id = isset( $request[ 'instance' ] ) ? $request[ 'instance' ] : false;
+
+		$service_schema = $this->service_schemas_store->get_service_schema_by_id_or_instance_id( $instance_id
+			? $instance_id
+			: $method_id );
+
+		if ( ! $service_schema ) {
+			return new WP_Error( 'schemas_not_found', __( 'Service schemas were not loaded', 'woocommerce-services' ), array( 'status' => 500 ) );
+		}
+
+		$payload = apply_filters( 'wc_connect_shipping_service_settings', array(
+			'success' => true,
+		), $method_id, $instance_id );
+
+		return new WP_REST_Response( $payload, 200 );
 	}
 
 	/**
@@ -35,7 +59,7 @@ class WC_REST_Connect_Services_Controller extends WC_REST_Connect_Base_Controlle
 				__( 'Unable to update service settings. Form data is missing service ID.', 'woocommerce-services' ),
 				array( 'status' => 400 )
 			);
-			$this->logger->debug( $error, __CLASS__ );
+			$this->logger->log( $error, __CLASS__ );
 			return $error;
 		}
 
@@ -46,7 +70,7 @@ class WC_REST_Connect_Services_Controller extends WC_REST_Connect_Base_Controlle
 				__( 'Unable to update service settings. The form data could not be read.', 'woocommerce-services' ),
 				array( 'status' => 400 )
 			);
-			$this->logger->debug( $error, __CLASS__ );
+			$this->logger->log( $error, __CLASS__ );
 			return $error;
 		}
 
@@ -58,12 +82,9 @@ class WC_REST_Connect_Services_Controller extends WC_REST_Connect_Base_Controlle
 					__( 'Unable to update service settings. Validation failed. %s', 'woocommerce-services' ),
 					$validation_result->get_error_message()
 				),
-				array_merge(
-					array( 'status' => 400 ),
-					$validation_result->get_error_data()
-				)
+				array( 'status' => 400 )
 			);
-			$this->logger->debug( $error, __CLASS__ );
+			$this->logger->log( $error, __CLASS__ );
 			return $error;
 		}
 

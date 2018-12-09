@@ -34,6 +34,9 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/img/loader2.svg" >
 			</div>
 			<header class="header clear" role="banner">
+				<div class="pre-header">
+					<?php the_field('pre_header_copy','options');?>
+				</div>
 				<div class="menu-toggle menuToggle">
 					<span class="hamTop"></span>
 					<span class="hamMid"></span>

@@ -20,15 +20,15 @@ class WC_REST_Connect_Shipping_Label_Status_Controller extends WC_REST_Connect_B
 				$response->get_error_message(),
 				array( 'message' => $response->get_error_message() )
 			);
-			$this->logger->debug( $error, __CLASS__ );
+			$this->logger->log( $error, __CLASS__ );
 			return $error;
 		}
 
-		$this->settings_store->update_label_order_meta_data( $request[ 'order_id' ], $response->label );
+		$label = $this->settings_store->update_label_order_meta_data( $request[ 'order_id' ], $response->label );
 
 		return array(
 			'success' => true,
-			'label' => $response->label,
+			'label' => $label,
 		);
 	}
 

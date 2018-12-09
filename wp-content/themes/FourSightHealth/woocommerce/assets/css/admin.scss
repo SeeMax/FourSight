@@ -1866,7 +1866,7 @@ ul.wc_coupon_list_block {
 
 		mark.completed::after {
 			content: '\e015';
-			color: $blue;
+			color: $darkTeal;
 		}
 
 		mark.on-hold::after {
@@ -2335,7 +2335,7 @@ table.wc_input_table {
 	width: 100%;
 
 	span.tips {
-		color: $blue;
+		color: $darkTeal;
 	}
 
 	th {
@@ -3084,7 +3084,7 @@ img.help_tip {
 
 		span.help_tip {
 			cursor: help;
-			color: $blue;
+			color: $darkTeal;
 		}
 
 		th {
@@ -4629,7 +4629,7 @@ img.ui-datepicker-trigger {
 					border-right-width: 0;
 					padding: 10px;
 					margin: 0;
-					color: $blue;
+					color: $darkTeal;
 					border-top-width: 0;
 					background-image: linear-gradient(to top, #ececec, #f9f9f9);
 

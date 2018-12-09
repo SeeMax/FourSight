@@ -1,0 +1,22 @@
+@import "colors";
+
+.mailchimp {
+
+	input[type=email] {
+		border:1px solid $lightGray;
+		padding:5px;
+		width:100%;
+		color: $gray;
+		margin-top:15px;
+
+		&:focus {
+			border:1px solid $green;
+		}
+	}
+}
+
+
+// 767px And Below
+@media screen and (max-width: 767px){
+
+}

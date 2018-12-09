@@ -2,7 +2,7 @@
 Contributors: mattkeys
 Tags: Advanced Custom Fields, ACF, Font Awesome, FontAwesome
 Requires at least: 3.5
-Tested up to: 4.8
+Tested up to: 4.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,6 +50,27 @@ This ACF field type is compatible with:
 2. Searchable list of all icons, including large live preview
 
 == Changelog ==
+
+= 2.1.2 =
+* Fixed bug where ACFFA_get_icons filter was not used in wp-admin area when retrieving icons.
+
+= 2.1.1 =
+* Fixed bug effecting any users who did not update to 2.1.0 before jsDelivr added FontAwesome 5.x to their CDN, where the 5.x icons would get loaded and break functionality
+
+= 2.1.0 =
+* Preventing any automatic updates to version 5.x of FontAwesome that could break plugin functionality and result in broken icons on sites currently using 4.x FontAwesome icons.
+
+= 2.0.9 =
+* Fixed bug effecting null value fields created in 1.x of this plugin would return a string of 'null' instead of boolean false when used in 2.x versions of this plugin.
+
+= 2.0.8 =
+* Fixed bug where fields marked to 'allow null' in acf v5 did not show the (x) to remove the selected option on the field
+
+= 2.0.7 =
+* Fixed bug with FA fields assigned to menu items + further refactoring of JS for ACF v5
+
+= 2.0.6 =
+* Refactored JS to simplify codebase and fix bugs where Chosen or Select2 fields would not initialize in a variety of field/sub-field configurations and display options.
 
 = 2.0.5 =
 * Fixed bug with ACF tabs + FontAwesome fields where Chosen/Select2 would not initialize beyond the first tab shown
@@ -138,6 +159,27 @@ This ACF field type is compatible with:
 * Initial Release.
 
 == Upgrade Notice ==
+
+= 2.1.2 =
+* Fixed bug where ACFFA_get_icons filter was not used in wp-admin area when retrieving icons.
+
+= 2.1.1 =
+* Fixed bug effecting any users who did not update to 2.1.0 before jsDelivr added FontAwesome 5.x to their CDN, where the 5.x icons would get loaded and break functionality
+
+= 2.1.0 =
+* Preventing any automatic updates to version 5.x of FontAwesome that could break plugin functionality and result in broken icons on sites currently using 4.x FontAwesome icons.
+
+= 2.0.9 =
+* Fixed bug effecting null value fields created in 1.x of this plugin would return a string of 'null' instead of boolean false when used in 2.x versions of this plugin.
+
+= 2.0.8 =
+* Fixed bug where fields marked to 'allow null' in acf v5 did not show the (x) to remove the selected option on the field
+
+= 2.0.7 =
+* Fixed bug with FA fields assigned to menu items + further refactoring of JS for ACF v5
+
+= 2.0.6 =
+* Refactored JS to simplify codebase and fix bugs where Chosen or Select2 fields would not initialize in a variety of field/sub-field configurations and display options.
 
 = 2.0.5 =
 * Fixed bug with ACF tabs + FontAwesome fields where Chosen/Select2 would not initialize beyond the first tab shown

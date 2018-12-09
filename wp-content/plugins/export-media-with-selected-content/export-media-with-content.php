@@ -4,8 +4,8 @@
  * Plugin URI: https://wordpress.org/plugins/export-media-with-selected-content/
  * Description: Make sure all relevant media are exported with the selected content.
  * Author: Joost de Keijzer
- * Version: 1.0
- * Author URI: https://dekeijzer.org/
+ * Version: 1.1
+ * Author URI: https://dkzr.nl/
  * Text Domain: export-media-with-selected-content
  */
 
@@ -14,13 +14,13 @@ class dkzrExportMediaWithContent {
 	protected static $args = array();
 
 	public function __construct() {
-		// wp-admin/export.php line 112
+		// wp-admin/export.php line 119
 		add_filter( 'export_args', array($this, 'export_args'), 10, 1 );
 
-		// wp-admin/export.php line 237
+		// wp-admin/export.php line 317
 		add_action( 'export_filters', array($this, 'wp_export_filters'), 10000 );
 
-		// wp-admin/includes/export.php line 40
+		// wp-admin/includes/export.php line 76
 		add_action( 'export_wp', array($this, 'export_wp'), 10, 1 );
 
 		// custom export_query
@@ -76,7 +76,7 @@ class dkzrExportMediaWithContent {
 
 		if ( isset( self::$args['content'], self::$args['export-media-with-selected-content'] ) && 'all' !== self::$args['content'] && 'attachment' !== self::$args['content'] && self::$args['export-media-with-selected-content'] ) {
 
-			$attachments = $wpdb->get_results( "SELECT ID, guid FROM {$wpdb->posts} WHERE post_type = 'attachment'", OBJECT_K );
+			$attachments = $wpdb->get_results( "SELECT ID, guid, post_parent FROM {$wpdb->posts} WHERE post_type = 'attachment'", OBJECT_K );
 			if ( empty($attachments) ) {
 				return $query;
 			}
@@ -84,11 +84,26 @@ class dkzrExportMediaWithContent {
 			$ids = array();
 			$cache = array();
 
+			/**
+			 * Post thumbnails
+			 */
 			$posts = $wpdb->get_col( $query );
 			if ( $posts ) {
 				$ids = $wpdb->get_col( sprintf( "SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_key = '_thumbnail_id' AND post_id IN(%s)", implode(',', $posts) ) );
 			}
 
+			/**
+			 * Uploaded to (post_parent)
+			 */
+			foreach ( $attachments as $id => $att ) {
+				if ( in_array( $att->post_parent, $posts ) ) {
+					$ids[] = $id;
+				}
+			}
+
+			/**
+			 * Media in body text (attached file: media, gallery, url's)
+			 */
 			foreach( $wpdb->get_results( sprintf( "SELECT post_id, meta_key, meta_value FROM {$wpdb->postmeta} WHERE meta_key IN('_wp_attached_file', '_wp_attachment_metadata') AND post_id IN(%s)", implode( ',', array_keys( $attachments ) ) ), ARRAY_A ) as $meta ) {
 				if ( isset( $attachments[ $meta['post_id'] ] ) ) {
 					$attachments[ $meta['post_id'] ]->{$meta['meta_key']} = maybe_unserialize( $meta['meta_value'] );
@@ -110,7 +125,7 @@ class dkzrExportMediaWithContent {
 					}
 				}
 
-				
+				// urls in text
 				preg_match_all('#(href|src)\s*=\s*["\']([^"\']+)["\']#', $text, $matches, PREG_SET_ORDER);
 				foreach ($matches as $match) {
 					if ( isset( $cache[ $match[2] ] ) ) {

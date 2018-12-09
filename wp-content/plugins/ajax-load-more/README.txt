@@ -1,10 +1,10 @@
 === WordPress Infinite Scroll - Ajax Load More ===
 Contributors: dcooney, connekthq
 Donate link: https://connekthq.com/donate/
-Tags: infinite scroll, infinite scrolling, scroll, infinite, lazy load, lazy loading, endless scroll, pagination, ajax pagination, ajax, ajax posts, ajax load posts, woocommerce, ajax load more
+Tags: infinite scroll, infinite scrolling, scroll, infinite, lazy load, lazy loading, endless scroll, pagination, ajax pagination, ajax, ajax posts, woocommerce, ajax load more, masonry
 Requires at least: 3.6
-Tested up to: 4.8.1
-Stable tag: 3.2.0
+Tested up to: 5.0
+Stable tag: 4.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,10 +37,14 @@ Check out the **[demo site](https://connekthq.com/plugins/ajax-load-more/)** for
 
 
 
-#### What's New 3.0
+#### What's New 4.0
+* **[Pro](https://connekthq.com/plugins/ajax-load-more/pro/)** - Access to all premium add-ons in a single installation.
+* **[Filters](https://connekthq.com/plugins/ajax-load-more/add-ons/filters/)** - The Filters add-on provides front-end and admin functionality for building and managing Ajax filters.
+* **[User Query](https://connekthq.com/plugins/ajax-load-more/add-ons/users/)** - Query and display a list of WordPress users by role using a `WP_User_Query` and Ajax Load More.
 * **[Advanced Custom Fields](https://connekthq.com/plugins/ajax-load-more/examples/advanced-custom-fields/)** - Compatibility and integration added for infinite scrolling Flexible Content, Gallery, Relationship and Repeater fields for Advanced Custom Fields.
 * **[Masonry](https://connekthq.com/plugins/ajax-load-more/examples/masonry/)** - Built-in support and functionality for Masonry layouts.
 * **[Progress Bars](https://connekthq.com/plugins/ajax-load-more/examples/progress-bar/)** - Display a Progress Bar load indicator with each Ajax request.
+* **[Scroll Container](https://connekthq.com/plugins/ajax-load-more/examples/scroll-container/)** - Constraining infinite scroll to a parent container.
 
 
 
@@ -72,8 +76,10 @@ Ajax Load More accepts a number of parameters that are passed to the WordPress q
 *   **sticky_posts** - Preserve sticky post ordering in Ajax listing. Default = false
 *   **post_format** - Query by post format. Default = null
 *   **category** - A comma separated list of categories to include by slug. Default = null
+*   **category__and** - A comma separated list of categories to include by ID. Default = null
 *   **category__not_in** - A comma separated list of categories to exclude by ID. Default = null
 *   **tag** - A comma separated list of tags to include by slug. Default = null
+*   **tag__and** - A comma separated list of tags to include by ID. Default = null
 *   **tag__not_in** - A comma separated list of tags to exclude by ID. Default = null
 *   **taxonomy** - Query by custom taxonomy name. Default = null
 *   **taxonomy_terms** - Comma separated list of custom taxonomy terms(slug). Default = null
@@ -104,21 +110,22 @@ Ajax Load More accepts a number of parameters that are passed to the WordPress q
 *   **max_pages** - Maximum number of pages to load while user is scrolling (activated on when scroll = true). Default = '0'
 *   **pause_override** - Allow scrolling to override the Pause parameter and trigger the loading of posts on scroll. Default = null
 *   **pause** - Do not load posts until user clicks the Load More button (true/false). Default = 'false'
-*   **transition** - Choose a posts reveal transition (slide/fade/masonry/none). Default = 'slide'
-*   **transition_speed** - The speed of the loading transition in milliseconds. (slide/fade/none). Default = '250'
+*   **transition** - Choose a posts reveal transition (fade/masonry/none). Default = 'fade'
 *   **transition_container** - Display the Ajax Load More (.alm-reveal) loading container. Default = 'true'
+*   **transition_container_classes** - Add classes to the `.alm-reveal` transition div.
 *   **masonry_selector** - The target classname of each masonry item. Default = null
 *   **masonry_animation** - Select a loading transition type for Masonry items. (default/zoom-out/slide-up/slide-down/none). Default = default
+*   **masonry_horizontalorder** - Maintain horizontal order. Default = true
 *   **images_loaded** - Wait for all images to load before displaying ajax loaded content (true/false). Default = 'false'
 *   **destroy_after** - Remove ajax load more functionality after 'n' number of pages have been loaded. Default = null
 *   **progress_bar** - Display progress bar indicator at the top of the window while loading Ajax content. Default = 'false'
-*   **progress_bar_color** - Enter the hex color of the progress bar.
-. Default = 'ed7070'
+*   **progress_bar_color** - Enter the hex color of the progress bar. Default = 'ed7070'
 *   **button_label** - The label text for Load More button. Default = 'Older Posts'
 *   **button_loading_label** - Update the text of the Load More button while content is loading. Default = null
 *   **container_type** - Override the global Container Type that was set on ALM Settings page. Default = null
 *   **css_classes** - Add custom CSS classes to the Ajax Load More container. Default = null
 *   **id** - A unique ID for the Ajax Load More instance.
+*   **nested** - Is this a nested Ajax Load More instance. Default = false
 
 [&rarr; See All Parameters](https://connekthq.com/plugins/ajax-load-more/docs/shortcode-parameters/)
 
@@ -135,7 +142,6 @@ Ajax Load More accepts a number of parameters that are passed to the WordPress q
 * **[Attachments](https://connekthq.com/plugins/ajax-load-more/examples/attachments/)** - Endless scroll post attachments.
 * **[Destroy After](https://connekthq.com/plugins/ajax-load-more/examples/destroy-after/)** - Remove Ajax Load More functionality after 'n' number of pages.
 * **[Event Listing](https://connekthq.com/plugins/ajax-load-more/examples/event-listing/)** - Ordering and listing events by custom field date.
-* **[Fade Transition](https://connekthq.com/plugins/ajax-load-more/examples/fade-transition/)** - Elements fade in as posts are loaded.
 * **[Filtering](https://connekthq.com/plugins/ajax-load-more/examples/filtering/)** - Reset and filter an Ajax Load More instance.
 * **[Flexbox](https://connekthq.com/plugins/ajax-load-more/examples/flexbox/)** - Creating a responsive Ajax Load More grid with Flexbox.
 * **[Infinite Scroll](https://connekthq.com/plugins/ajax-load-more/examples/infinite-scroll/)** - A look at the new loading functionality and styles.
@@ -147,6 +153,7 @@ Ajax Load More accepts a number of parameters that are passed to the WordPress q
 * **[Preloaded Posts](https://connekthq.com/plugins/ajax-load-more/examples/pause-loading/)** - Easily preload an initial set of posts before completing any Ajax requests to the server.
 * **[Progress Bar](https://connekthq.com/plugins/ajax-load-more/examples/progress-bar/)** - Display a progress bar load indicator with each Ajax request.
 * **[Search Results](https://connekthq.com/plugins/ajax-load-more/examples/search-results/)** - Returning results based on search terms.
+* **[Scroll Container](https://connekthq.com/plugins/ajax-load-more/examples/scroll-container/)** - Constrain Ajax Load More to a parent container.
 * **[SEO & Paging](https://connekthq.com/plugins/ajax-load-more/examples/seo-paging-add-ons/)** - Combine these two add-ons to create one powerful navigation system.
 * **[Slideshow Gallery](https://connekthq.com/plugins/ajax-load-more/examples/slideshow-gallery/)** - Create a gallery of posts with Ajax Load More and the Paging add-on.
 * **[Table Layout](https://connekthq.com/plugins/ajax-load-more/examples/table/)** - Ajax Load More will display query results in a table format.
@@ -167,6 +174,7 @@ The [Custom Repeater Add-On](https://connekthq.com/plugins/ajax-load-more/custom
 * **[Call to Actions](https://connekthq.com/plugins/ajax-load-more/add-ons/call-to-actions/)**: Extend Ajax Load More with advertisement and call to action content blocks.
 * **[Comments](https://connekthq.com/plugins/ajax-load-more/add-ons/comments/)**: Load and display WordPress blog comments using the core Ajax Load More infinite scroll functionality.
 * **[Custom Repeaters](https://connekthq.com/plugins/ajax-load-more/add-ons/custom-repeaters/)**: Create, modify and delete repeater templates as you need them with absolutely zero restrictions.
+* **[Filters](https://connekthq.com/plugins/ajax-load-more/add-ons/filters/)**: Front-end and admin functionality for creating, managing and displaying Ajax Load More filters.
 * **[Layouts](https://connekthq.com/plugins/ajax-load-more/add-ons/layouts/)**: Predefined responsive layouts for Ajax Load More repeater templates.
 * **[Next Page](https://connekthq.com/plugins/ajax-load-more/add-ons/next-page/)**: Infinite scroll multipage WordPress content with Ajax Load More and the Next Page add-on.
 * **[Paging](https://connekthq.com/plugins/ajax-load-more/add-ons/paging/)**: Replace the default lazy load/infinite scroll functionality of Ajax Load More with a numbered navigation system.
@@ -174,6 +182,7 @@ The [Custom Repeater Add-On](https://connekthq.com/plugins/ajax-load-more/custom
 * **[Previous Post](https://connekthq.com/plugins/ajax-load-more/add-ons/previous-post/)**: Enable infinite scrolling of older(previous) posts on your WordPress single post templates.
 * **[SEO](https://connekthq.com/plugins/ajax-load-more/add-ons/search-engine-optimization/)**: Generate unique paging URLs with each Ajax Load More query.
 * **[Theme Repeaters](https://connekthq.com/plugins/ajax-load-more/add-ons/theme-repeaters/)**: Manage Ajax Load More repeater templates from within your current theme directory.
+* **[Users](https://connekthq.com/plugins/ajax-load-more/add-ons/users/)**: Lazy loading WordPress Users with Ajax Load More.
 
 
 
@@ -200,7 +209,14 @@ The following [functions](https://connekthq.com/plugins/ajax-load-more/docs/call
     };
 
 
-**Done** - The almDone() function is triggered after all posts have been loaded..
+**Destroyed** - The almDestroyed() function is dispatched after the destroy_after shortcode parameter is triggered.
+
+    $.fn.almDestroyed = function(alm){
+    	console.log('"Ajax Load More functionality has been destroyed!');
+    };
+
+
+**Done** - The almDone() function is triggered after all posts have been loaded.
 
     $.fn.almDone = function(alm){
     	console.log('All posts have been loaded!');
@@ -255,7 +271,7 @@ Ajax Load More passes the following PHP **[variables](https://connekthq.com/plug
 
 ### Plugin Links
 * [Official Website](https://connekthq.com/ajax-load-more/)
-* [Documetation](https://connekthq.com/plugins/ajax-load-more/docs/)
+* [Documentation](https://connekthq.com/plugins/ajax-load-more/docs/)
 * [Premium Add-ons](https://connekthq.com/plugins/ajax-load-more/add-ons/)
 * [Free Extensions](https://connekthq.com/plugins/ajax-load-more/extensions/)
 * [Github](https://github.com/dcooney/wordpress-ajax-load-more/)
@@ -355,6 +371,157 @@ How to install Ajax Load More.
 
 
 == Changelog ==
+
+= 4.1.0 - December 6, 2018 =
+* NEW - Added initial support for nesting Ajax Load More instances. Users can now run Ajax Load More inside of another instance of Ajax Load More. For example, using Next Page add-on functionality inside of Previous Post content(Single posts). `[ajax_load_more nested="true"]`. Note: This is new functionality as should be used with caution as it has not fully been tested through every possible situation. Nested ALM Filters are not currently supported.
+* NEW - Added new plugin uninstall script and settings for removing all Ajax Load More data on plugin removal/deletion.
+* FIX - Fixed issue where filtering would stall when zero results were returned in an Ajax query.
+* FIX - Added bug fix for Shortcode Builder throwing a JS error when tags and/or categories are empty.
+
+
+= 4.0 - November 5, 2018 =
+* NEW - Introducing [Ajax Load More Pro](https://connekthq.com/plugins/ajax-load-more/pro/)! Access to every Ajax Load More add-on in a single installation.
+* NEW - Adding `category__and` and `tag__and` support for querying categories and tags.
+* UPDATE - Adding fix for permission error on repeater template directory by replacing `mkdir()` with WordPress core function `wp_mkdir_p`.
+* FIX - Fixed issue with Filters onComplete functions triggering before Ajax results were rendered on the screen.
+* FIX - Adding fix for `alm_get_canonical_url` function when getting URLs of child category and tag archives.
+
+
+= 3.7.1 - October 3, 2018 =
+Minor point release that affects Preloaded and Search Engine Optimization add-on users only. This release fixes 2 critical bugs in Ajax Load More 3.7.
+
+* FIX - Fix for Preloaded not parsing multiple Post Types (Sorry about that)
+* FIX - Adding `.alm-reveal` div and `css_classes` to NO_SCRIPT render.
+
+
+= 3.7 - September 19, 2018 =
+* UPDATE NOTICE for Preloaded Addon Users - this ALM update moves preloaded posts into core .alm-listing container. This update was required for refactoring of core JS and HTML elements while making future enhancements easier to maintain.
+* NEW - Added new `ALM_LOCALIZE` class that allows Ajax Load More variables and parameters to be written to the page and accessed as JavaScript variables. This will be expanded in the near future and used for our React and Vue examples :)
+* NEW - Added <noscript /> support for SEO addon users that renders `WP_Query` results for SEO and users without JS enabled.
+* UPDATE - Updated Ajax `WP_Query` to use new `ALM_QUERY_ARGS` class.
+* FIX - Removed PHP warning messages caused by some Ajax Load More functions running in WP Admin.
+* FIX - Fixed issue with offset and preloaded posts in Users addon, Comments addon and ACF extensions.
+* FIX - Added a fix for `post__not_in` shortcode parameter not working with Sticky Posts.
+* FIX - Fixed issue with fading in of Ajax elements when using SEO addon is active.
+* FIX - Fixed issue search term filtering on default `search.php` template.
+* UPDATE - Hiding Load More button if JavaScript is not enabled.
+* UPDATE - Updated loading functionality of Preloaded and SEO addon when hitting a paged URL directly.
+* UPDATE - Code refactoring of some PHP functions and Core ALM JS.
+* UPDATE - Code clean up and organization.
+
+
+= 3.6.1 - August 24, 2018 =
+* FIX - Fix for search parameter not being passed correctly to Ajax Load More.
+* FIX - Fixed PHP warning message being displayed with Call the Action add-on.
+* FIX - Fixed issue with Masonry settings not applying after latest 3.6 update.
+* NEW - Adding `total-posts` data attribute to parent Ajax Load More container.
+
+
+= 3.6 - August 24, 2018 =
+- NEW - Added export/download functionality for Repeater Templates, click the options icon (cog) under each Repeater Template to reveal.
+- NEW - Added compatibility with Gutenberg editor.
+- NEW - Added support for SCRIPT_DEBUG.
+- FIX - Fixed issue with abrupt transition when filtering with Masonry.
+- FIX - Removed JS error in console when custom filtering with Masonry.
+- Update - Admin UI/UX enhancements to Repeater Template page.
+- Update - Added support for passing extra Masonry options to Ajax Load More.
+- Update - Improving the Ajax headers that are sent with each query - ALM now only sends relevant query params via GET request.
+- Update - Improving the HTML output - ALM now only renders relevant data attributes on the `.alm-listing` div.
+- Update - Started initial integration of upcoming ALM Pro add-on.
+- Update - Updated Plugin Updater Class for add-ons.
+
+
+= 3.5.1 - June 20, 2018 =
+* NEW - Adding `columnWidth` support for Masonry.
+* NEW - Adding support and backwards compatibility for Custom Repeaters < v2.5
+* UPDATE - Added `transition_container_classes` parameter option to .alm-paging-content div for paging add-on.
+* FIX - Added fix for WPML taxonomy archive pages.
+* FIX - Fixed issue with `transition_container="false"` and new loading transition.
+* FIX - Updated ACF Relationship field function to return null if field is not present on the post ID page.
+
+
+= 3.5.0 - April 17, 2018 =
+### Notice
+This Ajax Load More update contains a major change to how the default repeater template is saved and displayed.
+On update, your default repeater template will be moved from `/plugins/ajax-load-more/core/repeater` to an `alm_templates`  directory created within `/wp-content/uploads`.
+This is a long overdue enhancement to the plugin and I highly recommend you backup your site (or Repeater Template at least) prior to updating Ajax Load More incase permission issues occur during the upgrade process.
+
+* NEW - Updating Ajax Load More loading sequence to help with integration for Adsense and DFP advertisements in Ajax content.
+* NEW - Default Repeater Template now saved and accessed from the `/wp-content/uploads` directory.
+* FIX - Added a fix for WPML users that supports category and tag archives across languages [See issues](https://wpml.org/forums/topic/ajax-load-more-wpml-non-default-languages-not-loading/).
+* FIX - Fixed issue with `destroy_after` not triggering at correct intervals when using [Preloaded add-on](https://connekthq.com/plugins/ajax-load-more/add-ons/preloaded/).
+* FIX - Fixed issue with shortcode parameters not being sent to Ajax Load More for the [Comments add-on](https://connekthq.com/plugins/ajax-load-more/add-ons/comments/).
+* UPDATE - Added support for new [SEO](https://connekthq.com/plugins/ajax-load-more/add-ons/search-engine-optimization/) add-on filter hooks.
+* UPDATE - Updated CSS for the styling list elements. (`.alm-listing > li`)
+* UPDATE - Packaging [Masonry v4.2.1](https://masonry.desandro.com/) in Ajax Load More as core WordPress includes an older version of Masonry that was causing issues with certain features.
+* UPDATE - Simplifying Ajax Load More transition property to allow for feature enhancements (Removed 'slide' transition and jQuery animations).
+* UPDATE - Removing `transition_speed` shortcode parameter and set a globe 1/4 second transition speed for all animations.
+* UPDATE - Various UI/UX enhancements
+* UPDATE - Code cleanup.
+
+
+= 3.4.1 - February 22, 2018 =
+* UPDATE - Added compatibility for Filters + Paging add-ons.
+* UPDATE - Added compatibility for Filters + Preloaded add-ons.
+* UPDATE - Code clean up
+* FIX - Fixed issue with Shortcode Builder showing Add-on and Extensions section when add-ons not installed.
+* FIX - Fixed issue with almDone and almEmpty callbacks not firing with Preloaded and Paging add-ons.
+
+
+= 3.4.0 - February 13, 2018 =
+* NEW - Adding various functionality to support the new [`Filters`](https://connekthq.com/plugins/ajax-load-more/add-ons/filters/) add-on.
+* FIX - Fixed bug with passing search parameter to Preloaded add-on.
+* FIX - Fixed issue with license activation for Theme Repeaters, SEO and User add-ons.
+* UPDATE - Updated default loading transition to be fade, previously slide.
+* UPDATE - Added support for multiple instances of Ajax Load More and Masonry.
+* UPDATE - Fixed issue with the Post ID field in the ACF section of shortcode builder.
+* UPDATE - Various UI/UX enhancements
+
+
+= 3.3.1 - December 7, 2017 =
+
+### Notice
+This Ajax Load More release contains fundamental changes to the way ALM loads CSS. After update, if you run into issues visit the Ajax Load More settings screen and deselect the `Load CSS Inline` option.
+
+* NEW - Updated the default loading of Ajax Load More CSS. CSS Will now be inlined to improve site overall performance. A new setting has been added to allow for disabling of this inline CSS update.
+* NEW - New filters added for hooking the post ID, slug and canonical URL.
+* FIX - Updated shortcode builder JS to remove unwanted references to the Users add-on.
+* FIX - Fixed bug with searching and the Preloaded add-on.
+* FIX - Fixed for REST API returning null results do to unset data variable.
+* Update - Updated Previous Post cache to reference the post ID vs post slug. This fixes an issue with special characters in post URLs causing 404 errors.
+
+
+= 3.3.0.1 - November 22, 2017 =
+
+* FIX - Applied a fix for the filtering method that was updated in 3.3.0 - it was causing load more function to be called multple times in some situations.
+* FIX - Fixed issue where filtering with the Paging add-on was resulting in a JavaScript error.
+
+
+= 3.3.0 - November 20, 2017 =
+
+* NEW - Adding functionality for new for [`WP_User_Query`](https://connekthq.com/plugins/ajax-load-more/add-ons/users/) add-on.
+* NEW - New Admin design, cleaner layout, improved performance.
+* UPDATE - Remove `load-more` ID from loading button.
+* UPDATE - Updated `alm_query_args` filter to accept the current post ID as a parameter within the filter.
+* UPDATE - Code clean up, creating JS modules
+* UPDATE - Improved license activations
+* FIX- Removed 'data-masonry-horizontalorder' being rendered into HTML page if empty.
+* FIX- Fixed issue with jump to link on ALM settings page.
+
+
+= 3.2.1 - October 5, 2017 =
+
+* NEW - Added new filter to optionally remove the trailing slash in URL of the SEO add-on. `add_filter('alm_seo_remove_trailing_slash', '__return_true');`
+* NEW - Added new `transition_container_classes` parameter that allows for custom classes to be added to the `.alm-reveal` container div.
+* NEW - Added new `almDestroyed` callback function that is dispatched after destroy_after has been triggered.
+ADD-ONS
+* NEW - Added `horizontalOrder` support for built in Masonry. The `masonry_horizontalorder` shortcode param will lay out items to maintain horizontal left-to-right order.
+* FIX - Fix for font icons not showing in shortcode builder.
+* FIX - Fix for issue with cache being created by logged in users even if 'Don't cache files for logged in users' is selected in the ALM settings.
+* UPDATE - Removed Nonce security option from ALM Settings.
+* UPDATE - Code cleanup, updating HTML markup in some areas.
+* UPDATE - Various UI/UX enhancements
+
 
 = 3.2.0 - August 8, 2017 =
 

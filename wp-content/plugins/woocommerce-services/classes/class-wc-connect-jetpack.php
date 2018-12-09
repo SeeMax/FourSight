@@ -39,6 +39,28 @@ if ( ! class_exists( 'WC_Connect_Jetpack' ) ) {
 		}
 
 		/**
+		 * Helper method to get whether the current site is an Atomic site
+		 * @return bool
+		 */
+		public static function is_atomic_site() {
+			if ( function_exists( 'jetpack_is_atomic_site' ) ) {
+				return jetpack_is_atomic_site();
+			} elseif ( function_exists( 'jetpack_is_automated_transfer_site' ) ) {
+				return jetpack_is_automated_transfer_site();
+			}
+
+			return false;
+		}
+
+		public static function get_connected_user_data( $user_id ) {
+			if ( method_exists( 'Jetpack', 'get_connected_user_data' ) ) {
+				return Jetpack::get_connected_user_data( $user_id );
+			}
+
+			return false;
+		}
+
+		/**
 		 * Helper method to get the Jetpack master user, IF we are connected
 		 * @return WP_User | false
 		 */
@@ -61,7 +83,7 @@ if ( ! class_exists( 'WC_Connect_Jetpack' ) ) {
 			return Jetpack::init()->build_connect_url(
 				true,
 				$redirect_url,
-				'woocommerce-services'
+				'woocommerce-services-auto-authorize'
 			);
 		}
 	}

@@ -2,379 +2,164 @@
 
 .home-page {
 
-	
-		
+	.featured-section {
 
-	.video-section {
-		background:white;
-		max-width:900px;
-		margin:10px auto; 
+	}
 
-		.content {
-			max-width:100%;
-			padding:0;
-		}
-		
-		.video-frame {
+	.featured-slider {
+		position: relative;
+		width:100%;
+		height:auto;
+		padding-left:80px;
+		padding-right:80px;
+	}
+
+	.single-featured-slide {
+		display: flex;
+		flex-wrap: wrap;
+		width:100%;
+		height:auto;
+	}
+
+	.single-featured-slide-image {
+
+		img {
+			border:1px solid $offWhite;
 			width:100%;
-			margin:0 auto;
-			z-index:1 !important;
-			position: relative;
-			height:0;
-			padding-bottom:56.25%;
-		}
-
-		.play-video {
-			display:none;
-			position: absolute;
-			top:0;
-			left:0;
-			right:0;
-			margin:0 auto;
-			width:100%;
-			height:100%;
-			z-index: 4;
-			align-items:center;
-			justify-content: center;
-
-			svg {
-				width:auto;
-				height:20%;
-			}
-		}
-
-		.play-video-circle {
-			fill:$blue;
-			cursor:pointer;
-			width:100%;
-			height:100%;
-		}
-
-		.play-video-arrow {
-			fill:white;
-			cursor:pointer;
-		}
-
-		iframe {
-			display:table  !important;
-			position:absolute;
-			top:0; 
-			left:0;
-			width:100%;
-			height:100%;
-			z-index:2 !important;
+			height:auto;
 		}
 	}
 
-	.mission-section {
+	.single-featured-slide-content {
+		flex-direction: column;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: flex-start;
+		padding-left:25px;
+	}
+
+	.featured-arrow {
+		cursor:pointer;
+		position: absolute;
+		top:50%;
+		left:30px;
+		width:22px;
+		height:22px;
+		border-right:1px solid $teal;
+		border-bottom:1px solid $teal;
+		transform:rotate(135deg);
+		z-index: 1001;
+	}
+
+	.featured-next-arrow {
+		left:auto;
+		right:30px;
+		transform:rotate(-45deg);
+	}
+
+
+	.believe-section {
+		background: $teal;
+		color:white;
 
 		.content {
-			padding-top: 50px;
-			padding-bottom: 50px;
+			padding-top:8px;
+			padding-bottom:6px;
+			justify-content: space-between;
+			align-items: center;
 		}
 
 		p {
-			width:75%;
+			padding-left:3%;
+			border-left: 1px solid $lightGreen;
 		}
-
 	}
 
-	.mission-icons {
+	.article-section {
+
+		.content {
+
+		}
+
+		.single-article-preview {
+			position: relative;
+			padding:0px 10px;
+			margin-bottom: 55px;
+
+			img {
+				margin-top:20px;
+			}
+		}
+
+		h3 {
+			color:$darkGray;
+		}
+
+		.preview-author-date {
+			margin-top:6px;
+			color:$teal;
+
+			span {
+				color:$gray;
+			}
+		}
+	}
+
+	.article-preview-buttons {
 		width:100%;
 		height:auto;
 		display: flex;
-		flex-wrap:wrap;
-		margin-top:70px;
-		justify-content: space-around;
+		flex-direction: column;
 		align-items: center;
-		
-		.single-icon {
-			width:25%;
-			height:auto;
-
-			svg {
-				margin:0 auto;
-				width:80%;
-				height:100%;
-				min-height: 200px;
-			}
-		}
 	}
 
-	.versus-top {
-		position: absolute;
-		top:-1px;
-		left:0;
-		width:100%;
-		height:95px;
-		display:flex;
 
-			svg {
-				width:100%;
-				height:100%;
-			}
-
-			.section-topper-polygon {
-				fill:white;
-			}
-		}
-
-
-
-	.versus-section {
-		background: no-repeat center center;
-    background-size: cover;
-		background-image: url('./img/backgrounds/Stocksy_comp_825843_gray.jpg');
-		padding-bottom:250px;
-		padding-top: 75px;
+	.ask-section {
+		background: $teal;
+		color:white;
 
 		.content {
-			overflow: visible;
+			padding-top: 25px;
+			padding-bottom: 25px;
 		}
 
 		h2 {
-			color:$green;
+			color:white;
 		}
 
 		p {
-			color:white;
+			margin:0px;
 		}
-	}
 
-	.book-image-section {
-		position: relative;
-		z-index: 99;
-		margin:-360px auto 0 auto;
-		width:100%;
-		text-align: center;
+		.ask-image {
 
-		.book-image {
-			position: relative;
-			margin:0 auto;
-			height:auto;
-			width:370px;			
 		}
 
 		img {
-			position: relative;
-			width:100%;
-			height: auto;
-		}
-
-		.book-page {
-			position: absolute;
-			top:0;
-			left:0;
-			margin:0 auto;
-			height:100%;
-			width:370px;	
-			background:#EEEFE4;
-		}
-	}
-
-	.blog-section {
-
-		.button {
-	    display: inline-block;
-	    margin-top:15px;
-	    width: auto;
-	    min-width: 0px;
-	    font-size: 14px;
-		}
-
-		h4 {
-			text-transform: uppercase;
-			text-align: left;
-			margin-bottom:5px;
-		}
-
-		.post-author {
-			font-size: 10px;
-			font-weight: 700;
-			color: $gray;
-			margin-bottom:25px;
-		}
-
-		.post-date {
-			position: absolute;
-			top:0px;
-			left:0px;
-			padding:10px 30px;
-			display: flex;
-			justify-content: center;
-			align-content: center;
-			background-color: black;
-			color:$green;
-			font-size: 12px;
-			font-weight: 500;
-		}
-
-		.post-excerpt {
-			font-size: 12px;
-		}
-	}
-
-	.blog-grid {
-		margin-top:60px;
-		display: flex;
-		flex-wrap:wrap;
-		width:100%;
-		align-content: center;
-		justify-content: space-between;
-	}
-
-	.single-blog-preview {
-		position: relative;
-		width:32%;
-		height:auto;
-		border:1px solid #E6E7E8;
-		text-align: left;
-		padding:55px 15px 30px 15px;
-	}
-
-	.testimonials-section {
-		background: no-repeat center center;
-    background-size: cover;
-		background-image: url('./img/backgrounds/Stocksy_comp_973808_gray.jpg');
-		/*padding-bottom:50px;*/
-		/*padding-top: 75px;*/
-
-		.content {
-			padding-bottom: 60px;
-		}
-
-		h2 {
-			color:$green;
-			margin-bottom: 55px;
-		}
-		
-		.testimonial-carousel {
 			width:100%;
 			height:auto;
 		}
 
-		.testimonial-dots {
-			position: relative;
-			width:100%;
-			/*margin-top:20px;*/
-			text-align: center;
-
-			.slick-dots {
-				position: relative;
-				bottom:0;
-		    width:auto;
-		    margin-left:0;
-		    margin-right:auto;
-
-				li {
-					height:12px;
-					width:12px;
-					background:$darkGray;
-					border-radius:50%;
-					transition:background .3s;
-
-					button {
-						display: none;
-					}
-				}
-
-				.slick-active {
-					background:$green;
-				}
-			}
-		}
-		
-		.single-testimonial {
-			position: relative;
+		.ask-content {
 			display: flex;
-			justify-content: flex-start;
+			flex-direction: column;
 			align-items: flex-start;
-			border:1px solid white;
-			color:white;
-			text-align: left;
-			padding: 35px;
-			margin-bottom:70px;
-
-			img {
-				margin-top:5px;
-				margin-right: 20px;
-			}
-		}
-
-		.testimonial-content {
-				
-			p {
-				padding:0;
-			}
-		}
-
-		.testimonial-author {
-			position: absolute;
-			top: 100%;
-			right: 35px;
-			margin-top:-35px;
-		}
-
-		.author_name {
-			
-		}
-
-		.author_credentials {
-			display: inline-block;
-			text-align: right;
-			margin-right: 15px;
-		}
-
-		.author_company {
-			color:$green;
-		}
-
-		.author_image {
-			display: inline-block;
-			width:100px;
-			height:100px;
-			background: no-repeat center top;
-    	background-size: cover;
+			justify-content: center;
+			padding-left: 35px;
 		}
 	}
 }
-
 
 // 1024px And Below
 @media screen and (max-width: 1024px){
 
 	.home-page {
 
-		p {
-			width:90%;
-		}
-
-		.hero-section {
-
-			.print-background {
-				position: absolute;
-		    top: -25%;
-		    left: -25%;
-		    width: 150%;
-    		height: 150%;
-    	}
-
-    	.hero-helmet {
-    		height:65vh;
-    	}
-    }
-
-    .mission-section {
-
-    	p {
-				width:100%;
-			}
-    }
-
-    .news-section {
+		.believe-section {
 
 			h2 {
-				width:90%;
+				text-align: right;
 			}
 		}
   }
@@ -386,133 +171,54 @@
 
 	.home-page {
 
-		p {
-			width:100%;
-			padding-left:0;
-			padding-right:0;
+		.featured-slider {
+			padding-left:0px;
+			padding-right:0px;
 		}
 
-		.video-section {
-
-			.play-video {
-				display:flex;
-			}	
+		.single-featured-slide-content {
+			padding-left:0px;
+			padding-top:30px;
 		}
 
-		
+		.featured-arrow {
+			display: none;
+		}
 
-		.mission-section {
+		.believe-section {
 
 			.content {
-				padding-bottom:0;
+				padding-top:28px;
+				padding-bottom:20px;
+				justify-content: space-between;
+				align-items: center;
 			}
-		}
-
-		.mission-icons {
-			margin-top:40px;
-
-			.single-icon {
-				width:70%;
-				margin-bottom:15px;
-
-				svg {
-					min-height:170px;
-				}
-
-				h4 {
-					margin-top:10px;
-				}
-			}
-		}
-
-		.versus-section {
-			padding-top:40px;
-		}
-
-		.versus-top {
-			height:40px;
-		}
-
-		.book-image-section {
-	    margin: -230px auto 0 auto;
-	    width: 80%;
-	    text-align: center;
-
-	    .book-image, .book-page {
-	    	width:100%;
-	    }
-		}
-
-		.single-blog-preview {
-			width:100%;
-			margin-bottom:20px;
-			padding-top:35px;
-		}
-
-		.testimonials-section {
 
 			h2 {
-				margin-bottom: 20px;
+				text-align: left;
 			}
 
 			p {
-				font-size:14px;
-			}
-		
-			.single-testimonial {
-				position: relative;
-				display: flex;
-				justify-content: flex-start;
-				align-items: flex-start;
-				border:1px solid white;
-				color:white;
-				text-align: left;
-				padding: 15px;
-				margin-bottom:170px;
-
-				img {
-					display: none;
-				}
-			}
-
-			.testimonial-content {
-					
-				p {
-					padding:0;
-				}
-			}
-
-			.testimonial-author {
-				position: absolute;
-				top: 100%;
-				right: 35px;
-				margin-top:0px;
-				margin-left:15px;
-			}
-
-			.author_name {
-				
-			}
-
-			.author_credentials {
-				margin:10px 0;
-				display: inline-block;
-				text-align: left;
-				
-			}
-
-			.author_company {
-				color:$green;
-			}
-
-			.author_image {
-				display: inline-block;
-				width:100px;
-				height:100px;
-				background: no-repeat center top;
-	    	background-size: cover;
+				padding-left:0;
+				border-left: 0px solid $lightGreen;
+				padding-top:18px;
+				border-top: 1px solid $lightGreen;
 			}
 		}
 
+		.ask-section {
+			background: $teal;
+			color:white;
+
+			.content {
+				padding-top: 50px;
+				padding-bottom: 50px;
+			}
+
+			.ask-content {
+				padding-left: 0px;
+				padding-top:28px;
+			}
+		}
 	}
 } //End 767px

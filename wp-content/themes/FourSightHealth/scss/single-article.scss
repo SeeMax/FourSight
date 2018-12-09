@@ -145,7 +145,7 @@
 		font-size:40px;
 		font-weight: 800;
 		text-transform: uppercase;
-		color:$blue;
+		color:$darkTeal;
 		text-align: left;	
 		padding:4px 0 2px 0;	
 	}
@@ -218,7 +218,7 @@
 
 /* use a sprite file with darker transport icons */
 .mejs-container, .mejs-container .mejs-controls {
-	background:$blue !important;
+	background:$darkTeal !important;
 	height:50px !important;
 }
 
